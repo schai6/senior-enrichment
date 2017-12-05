@@ -1,5 +1,5 @@
 const Sequelize = require('sequelize');
-const db = require('postgres://localhost:5432/mhiaj');
+const db = require('../index');
 
 const Student = db.define('students', {
   firstName: {
@@ -17,7 +17,7 @@ const Student = db.define('students', {
     }
   },
   email: {
-    type: Sequelize.String,
+    type: Sequelize.STRING,
     allowNull: false,
     validate: {
       notEmpty: true,

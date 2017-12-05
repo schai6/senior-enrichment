@@ -1,5 +1,5 @@
 const Sequelize = require('sequelize');
-const db = require('postgres://localhost:5432/mhiaj');
+const db = require('../index');
 
 const Campus = db.define('campuses', {
   name: {
