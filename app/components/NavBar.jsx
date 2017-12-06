@@ -23,9 +23,11 @@ export default class NavBar extends React.Component {
           <Menu.Item name='photos' active={activeItem === 'photos'} onClick={this.handleItemClick.bind(this)} />
           </Menu.Menu>
         </Menu>
-        <Segment attached='bottom'>
+        {activeItem === 'Home' ? <Segment attached='bottom'>
           hi
-        </Segment>
+        </Segment> : <Segment attached='bottom'>
+          blah
+        </Segment>}
       </div>
     );
   }
