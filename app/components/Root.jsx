@@ -8,9 +8,7 @@ export default class Root extends React.Component {
 
   render() {
     return (
-      <div>
-        <NavBar />
-      </div>
+      <NavBar />
     );
   }
 }

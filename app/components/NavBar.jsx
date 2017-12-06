@@ -5,30 +5,38 @@ import StudentContainer from './StudentContainer';
 export default class NavBar extends React.Component {
   constructor() {
     super();
+    //local state for choosing tabs
     this.state = {
       activeItem: 'Home'
     };
   }
 
-  handleItemClick(e, {name}) {
+  handleItemClick(e, { name }) {
     this.setState({ activeItem: name });
   }
 
   render() {
     const { activeItem } = this.state;
+    let currentPage;
+    if (activeItem === 'Campuses') {
+      currentPage = 'hi';
+    } else if (activeItem === 'Students') {
+      currentPage = <StudentContainer />;
+    } else {
+      currentPage = 'blah';
+    }
     return (
       <div>
         <Menu attached='top' tabular>
           <Menu.Menu position='right'>
-          <Menu.Item name='Home' active={activeItem === 'Home'} onClick={this.handleItemClick.bind(this)} />
-          <Menu.Item name='Students' active={activeItem === 'Students'} onClick={this.handleItemClick.bind(this)} />
+            <Menu.Item name='Home' active={activeItem === 'Home'} onClick={this.handleItemClick.bind(this)} />
+            <Menu.Item name='Campuses' active={activeItem === 'Campuses'} onClick={this.handleItemClick.bind(this)} />
+            <Menu.Item name='Students' active={activeItem === 'Students'} onClick={this.handleItemClick.bind(this)} />
           </Menu.Menu>
         </Menu>
-        {activeItem === 'Home' ? <Segment attached='bottom'>
-          hi
-        </Segment> : <Segment attached='bottom'>
-          <StudentContainer />
-        </Segment>}
+        <Segment attached='bottom' raised padded>
+          {currentPage}
+        </Segment>
       </div>
     );
   }
