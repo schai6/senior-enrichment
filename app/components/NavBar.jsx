@@ -1,5 +1,6 @@
 import React from 'react';
 import { Menu, Segment } from 'semantic-ui-react';
+import StudentContainer from './StudentContainer';
 
 export default class NavBar extends React.Component {
   constructor() {
@@ -20,13 +21,13 @@ export default class NavBar extends React.Component {
         <Menu attached='top' tabular>
           <Menu.Menu position='right'>
           <Menu.Item name='Home' active={activeItem === 'Home'} onClick={this.handleItemClick.bind(this)} />
-          <Menu.Item name='photos' active={activeItem === 'photos'} onClick={this.handleItemClick.bind(this)} />
+          <Menu.Item name='Students' active={activeItem === 'Students'} onClick={this.handleItemClick.bind(this)} />
           </Menu.Menu>
         </Menu>
         {activeItem === 'Home' ? <Segment attached='bottom'>
           hi
         </Segment> : <Segment attached='bottom'>
-          blah
+          <StudentContainer />
         </Segment>}
       </div>
     );
