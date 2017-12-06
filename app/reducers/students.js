@@ -5,7 +5,9 @@ export const GET_STUDENTS = 'GET_STUDENTS';
 export const fetchStudents = () => {
   return dispatch => {
     return axios.get('/api/students')
-      .then(students => dispatch(getStudents(students.data)))
+      .then(students => {
+        dispatch(getStudents(students.data));
+      })
       .catch(error => {
         console.error(error);
       });
