@@ -1,5 +1,6 @@
 import React from 'react';
-import store, {fetchStudents} from '../store';
+import store, { fetchStudents } from '../store';
+import NavBar from './NavBar';
 export default class Root extends React.Component {
   componentDidMount() {
     store.dispatch(fetchStudents());
@@ -8,7 +9,7 @@ export default class Root extends React.Component {
   render() {
     return (
       <div>
-        <h1>Hellowerwr</h1>
+        <NavBar />
       </div>
     );
   }
