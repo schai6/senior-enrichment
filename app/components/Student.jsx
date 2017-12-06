@@ -1,5 +1,5 @@
 import React from 'react';
-import { Table } from 'semantic-ui-react';
+import { Table, Icon } from 'semantic-ui-react';
 
 const Student = (props) => {
   return (
@@ -20,7 +20,7 @@ const Student = (props) => {
                 <Table.Cell>{i + 1}</Table.Cell>
                 <Table.Cell>{student.name}</Table.Cell>
                 <Table.Cell>{student.campus}</Table.Cell>
-                <Table.Cell>-</Table.Cell>
+                <Table.Cell textAlign='center'><Icon name='user delete' size='large' link /></Table.Cell>
               </Table.Row>
             </Table.Body>
           );
