@@ -1,16 +1,15 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
+import React from 'react';
+import store, {fetchStudents} from '../store';
+export default class Root extends React.Component {
+  componentDidMount() {
+    store.dispatch(fetchStudents());
+  }
 
-const Root = (props) => {
-  return (
-    <div>
-      <h1>Hello</h1>
-    </div>
-  );
-};
-
-const mapStateToProps = (state) => {};
-
-const mapDispatchToProps = (dispatch) => {};
-
-export default connect(mapStateToProps, mapDispatchToProps)(Root);
+  render() {
+    return (
+      <div>
+        <h1>Hellowerwr</h1>
+      </div>
+    );
+  }
+}
