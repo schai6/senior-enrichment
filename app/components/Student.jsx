@@ -1,10 +1,10 @@
 import React from 'react';
-import { Table, Icon } from 'semantic-ui-react';
+import { Table, Icon, Button } from 'semantic-ui-react';
 
 const Student = (props) => {
   return (
     <div>
-      <Table celled inverted selectable sortable>
+      <Table celled selectable sortable>
         <Table.Header>
           <Table.Row>
             <Table.HeaderCell width={1}>#</Table.HeaderCell>
@@ -20,7 +20,7 @@ const Student = (props) => {
                 <Table.Cell>{i + 1}</Table.Cell>
                 <Table.Cell>{student.name}</Table.Cell>
                 <Table.Cell>{student.campus}</Table.Cell>
-                <Table.Cell textAlign='center'><Icon name='user delete' size='large' link /></Table.Cell>
+                <Table.Cell textAlign='center'><Button icon><Icon name='user delete' size='large' onClick={() => console.log('hi')} /></Button></Table.Cell>
               </Table.Row>
             </Table.Body>
           );
