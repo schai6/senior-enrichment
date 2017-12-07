@@ -17,6 +17,7 @@ const StudentForm = (props) => {
       </Form.Group>
       <Field name='email' component={InputField} label='Email' type='email' placeholder='Email' />
       <Field name='campusId' component={SelectField} label='Campus' placeholder='Select Campus' options={campusOptions} />
+      <Field name='gpa' component={InputField} label='GPA' type='number' placeholder='GPA' />
       <Button type='submit'>Submit</Button>
     </Form>
   );

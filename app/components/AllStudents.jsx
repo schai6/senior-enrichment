@@ -16,6 +16,7 @@ const AllStudents = (props) => {
             <Table.HeaderCell width={1}>#</Table.HeaderCell>
             <Table.HeaderCell>Name</Table.HeaderCell>
             <Table.HeaderCell>Campus</Table.HeaderCell>
+            <Table.HeaderCell>GPA</Table.HeaderCell>
             <Table.HeaderCell width={1}>Remove</Table.HeaderCell>
           </Table.Row>
         </Table.Header>
@@ -32,6 +33,7 @@ const AllStudents = (props) => {
                 <Table.Cell>{i + 1}</Table.Cell>
                 <Table.Cell>{student.name}</Table.Cell>
                 <Table.Cell>{campusName}</Table.Cell>
+                <Table.Cell>{student.gpa}</Table.Cell>
                 <Table.Cell textAlign='center'><Button icon onClick={() => props.handleUserDelete(student.id)}><Icon name='user delete' size='large' /></Button></Table.Cell>
               </Table.Row>
             );
