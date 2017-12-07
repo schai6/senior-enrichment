@@ -7,7 +7,7 @@ const Student = (props) => {
     <div>
       <Modal size='tiny' trigger={<Button>ADD STUDENT</Button>}>
         <Modal.Header>Add a Student</Modal.Header>
-        <Modal.Content><StudentForm /></Modal.Content>
+        <Modal.Content><StudentForm onSubmit={props.handleFormSubmit} /></Modal.Content>
       </Modal>
       <Table celled selectable sortable>
         <Table.Header>

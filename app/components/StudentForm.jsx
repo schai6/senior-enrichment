@@ -1,30 +1,20 @@
 import React from 'react';
 import { Form, Button } from 'semantic-ui-react';
+import {Field, reduxForm} from 'redux-form';
+import {InputField} from 'react-semantic-redux-form';
 
 const StudentForm = (props) => {
   return (
-    <Form>
+    <Form onSubmit={props.handleSubmit}>
       <Form.Group>
-        <Form.Field>
-          <label>First Name</label>
-          <input placeholder='First Name' />
-        </Form.Field>
-        <Form.Field>
-          <label>Last Name</label>
-          <input placeholder='Last Name' />
-        </Form.Field>
+        <Field name='firstName' component={InputField} label = 'First Name' placeholder='First Name' />
+        <Field name='lastName' component={InputField} label = 'Last Name' placeholder='Last Name' />
       </Form.Group>
-      <Form.Field>
-        <label>Email</label>
-        <input placeholder='Email' />
-      </Form.Field>
-      <Form.Field>
-        <label>Campus</label>
-        <input placeholder='Campus' />
-      </Form.Field>
+      <Field name='email' component={InputField} label = 'Email' type='email' placeholder='Email' />
+      <Field name='campus' component={InputField} label = 'Campus' placeholder='Campus' />
       <Button type='submit'>Submit</Button>
     </Form>
   );
 };
 
-export default StudentForm;
+export default reduxForm({form: 'StudentForm'})(StudentForm);
