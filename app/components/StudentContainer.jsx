@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import Student from './Student';
+import AllStudents from './AllStudents';
 import { removeStudent, postStudent } from '../store';
 
 const mapStateToProps = (state) => {
@@ -19,5 +19,5 @@ const mapDispatchToProps = (dispatch) => {
   };
 };
 
-const StudentContainer = connect(mapStateToProps, mapDispatchToProps)(Student);
+const StudentContainer = connect(mapStateToProps, mapDispatchToProps)(AllStudents);
 export default StudentContainer;

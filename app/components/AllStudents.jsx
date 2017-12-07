@@ -2,7 +2,7 @@ import React from 'react';
 import { Table, Icon, Button, Modal } from 'semantic-ui-react';
 import StudentForm from './StudentForm';
 
-const Student = (props) => {
+const AllStudents = (props) => {
   return (
     <div>
       <Modal size='tiny' trigger={<Button>ADD STUDENT</Button>}>
@@ -36,4 +36,4 @@ const Student = (props) => {
   );
 };
 
-export default Student;
+export default AllStudents;
