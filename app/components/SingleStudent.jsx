@@ -1,19 +1,33 @@
 import React from 'react';
-import { Button, Modal, Header, Icon } from 'semantic-ui-react';
+import { Table } from 'semantic-ui-react';
 
 const SingleStudent = (props) => {
+  const student = props.student;
   return (
-    // <Modal size='tiny' open={props.modalOpen} onClose={props.handleClose} trigger={<Button icon onClick={props.handleOpen} className='add-student-button'><Icon name='user' size='large' /></Button>}>
-    <Modal>
-      <Modal.Header>Select a Photo</Modal.Header>
-      <Modal.Content >
-        <Modal.Description>
-          <Header>Default Profile Image</Header>
-          <p>We've found the following gravatar image associated with your e-mail address.</p>
-          <p>Is it okay to use this photo?</p>
-        </Modal.Description>
-      </Modal.Content>
-    </Modal>
+    <Table textAlign='center' definition celled selectable size='large'>
+      <Table.Body >
+        <Table.Row>
+          <Table.Cell textAlign='center'>First Name</Table.Cell>
+          <Table.Cell>{student.firstName}</Table.Cell>
+        </Table.Row>
+        <Table.Row>
+          <Table.Cell textAlign='center'>Last Name</Table.Cell>
+          <Table.Cell>{student.lastName}</Table.Cell>
+        </Table.Row>
+        <Table.Row>
+          <Table.Cell textAlign='center'>Email</Table.Cell>
+          <Table.Cell>{student.email}</Table.Cell>
+        </Table.Row>
+        <Table.Row>
+          <Table.Cell textAlign='center'>GPA</Table.Cell>
+          <Table.Cell>{student.gpa}</Table.Cell>
+        </Table.Row>
+        <Table.Row>
+          <Table.Cell textAlign='center'>Campus</Table.Cell>
+          <Table.Cell>{student.campus}</Table.Cell>
+        </Table.Row>
+      </Table.Body>
+    </Table>
   );
 };
 

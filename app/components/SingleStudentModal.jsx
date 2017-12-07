@@ -20,10 +20,10 @@ class SingleStudentModal extends React.Component {
 
   render() {
     return (
-      <Modal size='tiny' open={this.state.modalOpen} onClose={() => this.handleClose()} trigger={<Button icon onClick={() => this.handleOpen()} className='add-student-button'><Icon name='user' size='large' /></Button>}>
+      <Modal size='tiny' open={this.state.modalOpen} onClose={() => this.handleClose()} trigger={<Button onClick={() => this.handleOpen()} className='add-student-button'>View User</Button>}>
         <Modal.Header>{this.props.student.name}</Modal.Header>
         <Modal.Content>
-          <SingleStudent modalOpen={this.state.modalOpen} handleOpen={this.handleOpen.bind(this)} handleClose={this.handleClose.bind(this)} />
+          <SingleStudent student={this.props.student} modalOpen={this.state.modalOpen} handleOpen={this.handleOpen.bind(this)} handleClose={this.handleClose.bind(this)} />
         </Modal.Content>
       </Modal>
     );
