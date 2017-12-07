@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import Student from './Student';
-import { removeStudent } from '../store';
+import { removeStudent, addStudent } from '../store';
 
 const mapStateToProps = (state) => {
   return {
@@ -12,6 +12,9 @@ const mapDispatchToProps = (dispatch) => {
   return {
     handleClick(studentId) {
       dispatch(removeStudent(studentId));
+    }
+    handleFormSubmit(formData) {
+      dispatch(addStudent(formData))
     }
   };
 };
