@@ -27,7 +27,7 @@ class AllStudents extends React.Component {
             <StudentForm handleClose={this.handleClose.bind(this)} handleFormSubmit={this.props.handleFormSubmit} />
           </Modal.Content>
         </Modal>
-        <Table celled selectable sortable>
+        <Table textAlign='center' celled selectable collapsing compact size='large'>
           <Table.Header>
             <Table.Row>
               <Table.HeaderCell width={1}>#</Table.HeaderCell>
@@ -40,7 +40,7 @@ class AllStudents extends React.Component {
             {this.props.students.map((student, i) => {
               return (
                 <Table.Row key={student.id}>
-                  <Table.Cell>{i + 1}</Table.Cell>
+                  <Table.Cell onClick={()=>console.log('hihihi')}>{i + 1}</Table.Cell>
                   <Table.Cell>{student.name}</Table.Cell>
                   <Table.Cell>{student.campus}</Table.Cell>
                   <Table.Cell textAlign='center'><Button icon onClick={() => this.props.handleClick(student.id)}><Icon name='user delete' size='large' /></Button></Table.Cell>
