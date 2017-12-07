@@ -12,7 +12,6 @@ const AllStudents = (props) => {
       <Table textAlign='center' definition celled selectable size='large'>
         <Table.Header>
           <Table.Row>
-            <Table.HeaderCell width={1} />
             <Table.HeaderCell width={1}>#</Table.HeaderCell>
             <Table.HeaderCell>Name</Table.HeaderCell>
             <Table.HeaderCell>Campus</Table.HeaderCell>
@@ -23,16 +22,15 @@ const AllStudents = (props) => {
         <Table.Body >
           {props.students.map((student, i) => {
             const campus = props.campuses.find(campus => campus.id === student.campusId);
-            const campusName = campus ? campus.name : '';
+            campus.name = campus ? campus.name : '';
             return (
               <Table.Row key={student.id}>
-                <Table.Cell textAlign='center'>
-                  {/* Modal for Viewing Student */}
-                  <SingleStudentModal student={student} />
-                </Table.Cell>
                 <Table.Cell>{i + 1}</Table.Cell>
-                <Table.Cell>{student.name}</Table.Cell>
-                <Table.Cell>{campusName}</Table.Cell>
+                <Table.Cell>
+                  {/* Modal for Viewing Student */}
+                  <SingleStudentModal student={student} campus={campus} />
+                </Table.Cell>
+                <Table.Cell>{campus.name}</Table.Cell>
                 <Table.Cell>{student.gpa}</Table.Cell>
                 <Table.Cell textAlign='center'><Button icon onClick={() => props.handleUserDelete(student.id)}><Icon name='user delete' size='large' /></Button></Table.Cell>
               </Table.Row>

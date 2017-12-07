@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, Modal, Icon} from 'semantic-ui-react';
+import { Button, Modal, Icon } from 'semantic-ui-react';
 import SingleStudent from './SingleStudent';
 
 class SingleStudentModal extends React.Component {
@@ -19,11 +19,13 @@ class SingleStudentModal extends React.Component {
   }
 
   render() {
+    const student = this.props.student;
+    const campus = this.props.campus;
     return (
-      <Modal size='tiny' open={this.state.modalOpen} onClose={() => this.handleClose()} trigger={<Button onClick={() => this.handleOpen()} className='add-student-button'>View User</Button>}>
-        <Modal.Header>{this.props.student.name}</Modal.Header>
+      <Modal size='tiny' open={this.state.modalOpen} onClose={() => this.handleClose()} trigger={<Button onClick={() => this.handleOpen()} className='add-student-button'>{student.name}</Button>}>
+        <Modal.Header>{student.name}</Modal.Header>
         <Modal.Content>
-          <SingleStudent student={this.props.student} modalOpen={this.state.modalOpen} handleOpen={this.handleOpen.bind(this)} handleClose={this.handleClose.bind(this)} />
+          <SingleStudent student={student} campus={campus} modalOpen={this.state.modalOpen} handleOpen={this.handleOpen.bind(this)} handleClose={this.handleClose.bind(this)} />
         </Modal.Content>
       </Modal>
     );

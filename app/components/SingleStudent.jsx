@@ -3,6 +3,8 @@ import { Table } from 'semantic-ui-react';
 
 const SingleStudent = (props) => {
   const student = props.student;
+  const campus = props.campus;
+
   return (
     <Table textAlign='center' definition celled selectable size='large'>
       <Table.Body >
@@ -24,7 +26,7 @@ const SingleStudent = (props) => {
         </Table.Row>
         <Table.Row>
           <Table.Cell textAlign='center'>Campus</Table.Cell>
-          <Table.Cell>{student.campus}</Table.Cell>
+          <Table.Cell>{campus.name}</Table.Cell>
         </Table.Row>
       </Table.Body>
     </Table>
