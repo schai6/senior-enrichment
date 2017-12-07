@@ -1,9 +1,10 @@
 import React from 'react';
-import store, { fetchStudents } from '../store';
+import store, { fetchStudents, fetchCampuses } from '../store';
 import NavBar from './NavBar';
 export default class Root extends React.Component {
   componentDidMount() {
     store.dispatch(fetchStudents());
+    store.dispatch(fetchCampuses());
   }
 
   render() {

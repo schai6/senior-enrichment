@@ -4,7 +4,8 @@ import { removeStudent, postStudent } from '../store';
 
 const mapStateToProps = (state) => {
   return {
-    students: state.students
+    students: state.students,
+    campuses: state.campuses
   };
 };
 

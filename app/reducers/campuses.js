@@ -36,10 +36,10 @@ export const postCampus = (campus) => {
   };
 };
 
-export const getCampuses = (campus) => {
+export const getCampuses = (campuses) => {
   return {
     type: GET_CAMPUSES,
-    campus
+    campuses
   };
 };
 

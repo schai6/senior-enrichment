@@ -7,7 +7,7 @@ const AllStudents = (props) => {
   return (
     <div>
       {/* Modal for adding a student */}
-      <StudentFormModal />
+      <StudentFormModal campuses={props.campuses} handleFormSubmit={props.handleFormSubmit} />
       {/* Table of Students */}
       <Table textAlign='center' definition celled selectable size='large'>
         <Table.Header>
