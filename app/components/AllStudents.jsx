@@ -1,14 +1,11 @@
 import React from 'react';
-import { Table, Icon, Button, Modal } from 'semantic-ui-react';
+import { Table, Icon, Button } from 'semantic-ui-react';
 import StudentForm from './StudentForm';
 
 const AllStudents = (props) => {
   return (
     <div>
-      <Modal size='tiny' trigger={<Button>ADD STUDENT</Button>}>
-        <Modal.Header>Add a Student</Modal.Header>
-        <Modal.Content><StudentForm onSubmit={props.handleFormSubmit} /></Modal.Content>
-      </Modal>
+      <StudentForm handleFormSubmit={props.handleFormSubmit} />
       <Table celled selectable sortable>
         <Table.Header>
           <Table.Row>
