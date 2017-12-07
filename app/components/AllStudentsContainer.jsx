@@ -19,5 +19,5 @@ const mapDispatchToProps = (dispatch) => {
   };
 };
 
-const StudentContainer = connect(mapStateToProps, mapDispatchToProps)(AllStudents);
-export default StudentContainer;
+const AllStudentsContainer = connect(mapStateToProps, mapDispatchToProps)(AllStudents);
+export default AllStudentsContainer;

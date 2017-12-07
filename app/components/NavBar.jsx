@@ -1,6 +1,6 @@
 import React from 'react';
 import { Menu, Segment } from 'semantic-ui-react';
-import StudentContainer from './StudentContainer';
+import AllStudentsContainer from './AllStudentsContainer';
 
 export default class NavBar extends React.Component {
   constructor() {
@@ -21,7 +21,7 @@ export default class NavBar extends React.Component {
     if (activeItem === 'Campuses') {
       currentPage = 'hi';
     } else if (activeItem === 'Students') {
-      currentPage = <StudentContainer />;
+      currentPage = <AllStudentsContainer />;
     } else {
       currentPage = 'blah';
     }
