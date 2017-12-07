@@ -18,12 +18,17 @@ class StudentFormModal extends React.Component {
     this.setState({ modalOpen: false });
   }
 
+  handleFormSubmit(values) {
+    this.props.handleFormSubmit(values);
+    this.handleClose();
+  }
+
   render() {
     return (
       <Modal size='tiny' open={this.state.modalOpen} onClose={() => this.handleClose()} trigger={<Button onClick={() => this.handleOpen()} className='add-student-button'>ADD STUDENT</Button>}>
         <Modal.Header>Add a Student</Modal.Header>
         <Modal.Content>
-          <StudentForm handleClose={this.handleClose.bind(this)} handleFormSubmit={this.props.handleFormSubmit} />
+          <StudentForm campuses={this.props.campuses} handleFormSubmit={this.handleFormSubmit.bind(this)} handleClose={this.handleClose.bind(this)} />
         </Modal.Content>
       </Modal>
     );
