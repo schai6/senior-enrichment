@@ -16,7 +16,7 @@ const StudentForm = (props) => {
         <Field name='lastName' component={InputField} label='Last Name' placeholder='Last Name' />
       </Form.Group>
       <Field name='email' component={InputField} label='Email' type='email' placeholder='Email' />
-      <Field name='campus' component={SelectField} label='Campus' placeholder='Select Campus' options={campusOptions} />
+      <Field name='campusId' component={SelectField} label='Campus' placeholder='Select Campus' options={campusOptions} />
       <Button type='submit'>Submit</Button>
     </Form>
   );

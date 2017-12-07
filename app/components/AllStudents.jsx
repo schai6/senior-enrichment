@@ -21,6 +21,8 @@ const AllStudents = (props) => {
         </Table.Header>
         <Table.Body >
           {props.students.map((student, i) => {
+            const campus = props.campuses.find(campus => campus.id === student.campusId);
+            const campusName = campus ? campus.name : '';
             return (
               <Table.Row key={student.id}>
                 <Table.Cell textAlign='center'>
@@ -29,7 +31,7 @@ const AllStudents = (props) => {
                 </Table.Cell>
                 <Table.Cell>{i + 1}</Table.Cell>
                 <Table.Cell>{student.name}</Table.Cell>
-                <Table.Cell>{student.campus}</Table.Cell>
+                <Table.Cell>{campusName}</Table.Cell>
                 <Table.Cell textAlign='center'><Button icon onClick={() => props.handleUserDelete(student.id)}><Icon name='user delete' size='large' /></Button></Table.Cell>
               </Table.Row>
             );
