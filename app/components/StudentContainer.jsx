@@ -12,9 +12,9 @@ const mapDispatchToProps = (dispatch) => {
   return {
     handleClick(studentId) {
       dispatch(removeStudent(studentId));
-    }
+    },
     handleFormSubmit(formData) {
-      dispatch(addStudent(formData))
+      dispatch(addStudent(formData));
     }
   };
 };
