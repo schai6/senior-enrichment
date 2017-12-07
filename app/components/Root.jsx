@@ -1,6 +1,7 @@
 import React from 'react';
 import store, { fetchStudents, fetchCampuses } from '../store';
 import NavBar from './NavBar';
+import { Redirect } from 'react-router-dom';
 export default class Root extends React.Component {
   componentDidMount() {
     store.dispatch(fetchStudents());
@@ -9,7 +10,10 @@ export default class Root extends React.Component {
 
   render() {
     return (
-      <NavBar />
+      <div>
+        <NavBar />
+        <Redirect to="/home" />
+      </div>
     );
   }
 }
