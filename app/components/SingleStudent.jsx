@@ -1,12 +1,12 @@
 import React from 'react';
-import { Button, Modal, Header } from 'semantic-ui-react';
+import { Button, Modal, Header, Icon } from 'semantic-ui-react';
 
-const Student = (props) => {
+const SingleStudent = (props) => {
   return (
-    <Modal trigger={<Button>Show Modal</Button>}>
+    // <Modal size='tiny' open={props.modalOpen} onClose={props.handleClose} trigger={<Button icon onClick={props.handleOpen} className='add-student-button'><Icon name='user' size='large' /></Button>}>
+    <Modal>
       <Modal.Header>Select a Photo</Modal.Header>
-      <Modal.Content image>
-        <Image wrapped size='medium' src='/assets/images/avatar/large/rachel.png' />
+      <Modal.Content >
         <Modal.Description>
           <Header>Default Profile Image</Header>
           <p>We've found the following gravatar image associated with your e-mail address.</p>
@@ -17,4 +17,4 @@ const Student = (props) => {
   );
 };
 
-export default Student;
+export default SingleStudent;
