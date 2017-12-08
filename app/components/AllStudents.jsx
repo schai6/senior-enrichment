@@ -20,7 +20,7 @@ const AllStudents = (props) => {
           </Table.Row>
         </Table.Header>
         <Table.Body >
-          {props.students.map((student, i) => {
+          {props.students.map((student) => {
             const campus = props.campuses.find(campus => campus.id === student.campusId);
             campus.name = campus ? campus.name : '';
             return (
