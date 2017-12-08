@@ -1,1 +1,19 @@
-.ui.pointing.menu {display: flex;justify-content: flex-end;}
+.ui.pointing.menu {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.ui.image.campusImage:hover + .ui.icon.button.deleteCampusButton {
+  display: inline-block;
+}
+
+.ui.icon.button.deleteCampusButton {
+  z-index: 1;
+  position: absolute;
+  right: .8em;
+  display: none;
+}
+
+.ui.icon.button.deleteCampusButton:hover {
+  display: inline-block;
+}

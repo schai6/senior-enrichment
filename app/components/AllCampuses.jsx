@@ -1,5 +1,5 @@
 import React from 'react';
-import { Grid, Image } from 'semantic-ui-react';
+import { Grid, Image, Icon, Button } from 'semantic-ui-react';
 
 const AllCampuses = (props) => {
   const colors = ['red', 'orange', 'yellow', 'olive', 'green', 'teal', 'blue', 'violet', 'purple', 'pink', 'brown', 'grey', 'black'];
@@ -8,7 +8,7 @@ const AllCampuses = (props) => {
   for (let i = 0; i < campuses.length; i += 4) {
     rows.push([]);
     for (let j = i; j < i + 4; j++) {
-      rows[i/4].push(campuses[j]);
+      rows[i / 4].push(campuses[j]);
     }
   }
   return (
@@ -17,7 +17,8 @@ const AllCampuses = (props) => {
         return (<Grid.Row key={i} columns="4">
           {row.map(campus => {
             return (<Grid.Column key={campus.id}>
-              <Image label={{ color: colors[Math.floor(Math.random() * colors.length)], content: campus.name, ribbon: true }} src={campus.imageUrl} />
+              <Image className="campusImage" label={{ color: colors[Math.floor(Math.random() * colors.length)], content: campus.name, ribbon: true }} src={campus.imageUrl} />
+              <Button size='small' className='deleteCampusButton' icon><Icon name='window close' size='small' /></Button>
             </Grid.Column>);
           })}
         </Grid.Row>);
