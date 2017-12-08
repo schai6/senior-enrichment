@@ -6,35 +6,35 @@ const {
 
 const campuses = [{
     name: 'Earth',
-    imageUrl: '/planets/earth'
+    imageUrl: '/planets/earth.jpg'
   },
   {
     name: 'Jupiter',
-    imageUrl: '/planets/jupiter'
+    imageUrl: '/planets/jupiter.jpg'
   },
   {
     name: 'Mars',
-    imageUrl: '/planets/mars'
+    imageUrl: '/planets/mars.jpg'
   },
   {
     name: 'Mercury',
-    imageUrl: '/planets/mercury'
+    imageUrl: '/planets/mercury.jpg'
   },
   {
     name: 'Neptune',
-    imageUrl: '/planets/neptune'
+    imageUrl: '/planets/neptune.jpg'
   },
   {
     name: 'Saturn',
-    imageUrl: '/planets/saturn'
+    imageUrl: '/planets/saturn.jpg'
   },
   {
     name: 'Uranus',
-    imageUrl: '/planets/uranus'
+    imageUrl: '/planets/uranus.jpg'
   },
   {
     name: 'Venus',
-    imageUrl: '/planets/venus'
+    imageUrl: '/planets/venus.jpg'
   },
 ];
 
