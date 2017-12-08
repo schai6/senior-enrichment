@@ -5,18 +5,18 @@ const AllCampuses = (props) => {
   return (
     <div>
       <Grid padded>
-        <Grid.Row>
+        <Grid.Row columns="4">
           <Grid.Column>
-            <Image width={10}src='https://static.pexels.com/photos/2422/sky-earth-galaxy-universe.jpg' />
+            <Image label={{ as: 'a', color: 'black', content: 'Earth', ribbon: true }} src='/planets/earth.jpg' />
           </Grid.Column>
           <Grid.Column>
-            <Image src='https://brianasaussy.com/wp-content/uploads/2016/08/jupiter-image.jpg' />
+            <Image label={{ as: 'a', color: 'black', content: 'Jupiter', ribbon: true }}src='/planets/jupiter.jpg' />
           </Grid.Column>
           <Grid.Column>
-            <Image src='https://upload.wikimedia.org/wikipedia/commons/thumb/0/02/OSIRIS_Mars_true_color.jpg/1200px-OSIRIS_Mars_true_color.jpg' />
+            <Image label={{ as: 'a', color: 'black', content: 'Mars', ribbon: true }}src='/planets/mars.jpg' />
           </Grid.Column>
           <Grid.Column>
-            <Image src='https://upload.wikimedia.org/wikipedia/commons/thumb/d/d9/Mercury_in_color_-_Prockter07-edit1.jpg/1200px-Mercury_in_color_-_Prockter07-edit1.jpg' />
+            <Image label={{ as: 'a', color: 'black', content: 'Mercury', ribbon: true }}src='/planets/mercury.jpg' />
           </Grid.Column>
         </Grid.Row>
       </Grid>
