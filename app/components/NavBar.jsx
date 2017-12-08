@@ -56,7 +56,7 @@ const NavBar = () => {
     { menuItem: 'Students', render: () => <Tab.Pane attached={true}><AllStudentsContainer /></Tab.Pane> },
   ];
   return (
-    <Tab menu={{ secondary: true, pointing: true }} panes={panes} />
+    <Tab menu={{ pointing: true }} panes={panes} />
   );
 };
 
