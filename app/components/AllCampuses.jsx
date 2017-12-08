@@ -8,7 +8,7 @@ const AllCampuses = (props) => {
   for (let i = 0; i < campuses.length; i += 4) {
     rows.push([]);
     for (let j = i; j < i + 4; j++) {
-      rows[i / 4].push(campuses[j]);
+      if (campuses[j]) rows[i / 4].push(campuses[j]);
     }
   }
   return (
@@ -18,7 +18,7 @@ const AllCampuses = (props) => {
           {row.map(campus => {
             return (<Grid.Column key={campus.id}>
               <Image className="campusImage" label={{ color: colors[Math.floor(Math.random() * colors.length)], content: campus.name, ribbon: true }} src={campus.imageUrl} />
-              <Button size='small' className='deleteCampusButton' icon><Icon name='window close' size='small' /></Button>
+              <Button onClick={() => props.handleCampusDelete(campus.id)} size='small' className='deleteCampusButton' icon><Icon name='window close' size='small' /></Button>
             </Grid.Column>);
           })}
         </Grid.Row>);

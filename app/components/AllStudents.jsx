@@ -21,8 +21,8 @@ const AllStudents = (props) => {
         </Table.Header>
         <Table.Body >
           {props.students.map((student) => {
-            const campus = props.campuses.find(campus => campus.id === student.campusId);
-            campus.name = campus ? campus.name : '';
+            let campus = props.campuses.find(campus => campus.id === student.campusId);
+            if (!campus) campus = {name: ''};
             return (
               <Table.Row key={student.id}>
                 <Table.Cell>{student.id}</Table.Cell>
