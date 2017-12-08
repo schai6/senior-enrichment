@@ -12,11 +12,11 @@ const AllStudents = (props) => {
       <Table textAlign='center' definition celled selectable size='large'>
         <Table.Header>
           <Table.Row>
-            <Table.HeaderCell width={1}>#</Table.HeaderCell>
-            <Table.HeaderCell>Name</Table.HeaderCell>
-            <Table.HeaderCell>Campus</Table.HeaderCell>
-            <Table.HeaderCell>GPA</Table.HeaderCell>
-            <Table.HeaderCell width={1}>Remove</Table.HeaderCell>
+            <Table.HeaderCell width={2}>#</Table.HeaderCell>
+            <Table.HeaderCell width={5}>Name</Table.HeaderCell>
+            <Table.HeaderCell width={5}>Campus</Table.HeaderCell>
+            <Table.HeaderCell width={2}>GPA</Table.HeaderCell>
+            <Table.HeaderCell width={2}>Remove</Table.HeaderCell>
           </Table.Row>
         </Table.Header>
         <Table.Body >
@@ -25,7 +25,7 @@ const AllStudents = (props) => {
             campus.name = campus ? campus.name : '';
             return (
               <Table.Row key={student.id}>
-                <Table.Cell>{i + 1}</Table.Cell>
+                <Table.Cell>{student.id}</Table.Cell>
                 <Table.Cell>
                   {/* Modal for Viewing Student */}
                   <SingleStudentModal student={student} campus={campus} />
