@@ -5,35 +5,35 @@ const {
 } = require('./server/db/models/');
 
 const campuses = [{
-    name: 'earth',
+    name: 'Earth',
     imageUrl: '/planets/earth'
   },
   {
-    name: 'jupiter',
+    name: 'Jupiter',
     imageUrl: '/planets/jupiter'
   },
   {
-    name: 'mars',
+    name: 'Mars',
     imageUrl: '/planets/mars'
   },
   {
-    name: 'mercury',
+    name: 'Mercury',
     imageUrl: '/planets/mercury'
   },
   {
-    name: 'neptune',
+    name: 'Neptune',
     imageUrl: '/planets/neptune'
   },
   {
-    name: 'saturn',
+    name: 'Saturn',
     imageUrl: '/planets/saturn'
   },
   {
-    name: 'uranus',
+    name: 'Uranus',
     imageUrl: '/planets/uranus'
   },
   {
-    name: 'venus',
+    name: 'Venus',
     imageUrl: '/planets/venus'
   },
 ];
