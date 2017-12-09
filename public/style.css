@@ -7,7 +7,7 @@ body {
   justify-content: flex-end;
 }
 
-.ui.image.campusImage img {
+.ui.image.campus-image img {
   width: 200px;
   height: 200px;
 }
@@ -28,6 +28,11 @@ body {
   position: absolute;
 }
 
-.ui.corner.label .icon {
+.ui.corner.label .icon.delete-campus-button {
   cursor: pointer;
 }
+
+.ui.corner.label .icon.disabled.delete-campus-button {
+  cursor: not-allowed;
+}
+
