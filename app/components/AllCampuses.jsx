@@ -13,9 +13,9 @@ const AllCampuses = (props) => {
           <GridTile title={''} titlePosition='top' key={campus.id}>
             <Segment raised className='campuses-segment'>
               <Label corner='right'>
-                <Icon link size='small' name='window close' onClick={() => props.handleCampusDelete(campus.id)} />
+                <Icon className='delete-campus-button' link size='small' disabled={campus.students.length ? true : false} name='window close' onClick={campus.students.length ? null : () => props.handleCampusDelete(campus.id)} />
               </Label >
-              <Image centered as='img' className="campusImage" label={{ color: 'blue', content: campus.name, ribbon: true }} src={campus.imageUrl} />
+              <Image centered as='img' className="campus-image" label={{ color: 'blue', content: campus.name, ribbon: true }} src={campus.imageUrl} />
             </Segment>
           </GridTile>
         ))}
