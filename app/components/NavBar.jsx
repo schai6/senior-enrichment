@@ -6,7 +6,9 @@ import { NavLink } from 'react-router-dom';
 import { withRouter } from 'react-router';
 
 const NavBar = (props) => {
-  const tab = props.location.pathname.slice(1);
+  //slash so the tab stays selected when viewing single campus/student
+  const slash = props.location.pathname.indexOf('/', 1);
+  const tab = slash > -1 ? props.location.pathname.slice(1, slash) : props.location.pathname.slice(1);
   let currentPage;
   if (tab === 'campuses') {
     currentPage = <AllCampusesContainer />;

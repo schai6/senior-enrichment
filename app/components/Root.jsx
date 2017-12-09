@@ -14,10 +14,12 @@ export default class Root extends React.Component {
       <div>
         <NavBar />
         <Switch >
-          <Route path="/home" />
-          <Route path="/students" />
-          <Route path="/campuses" />
-          <Redirect to="/home" />
+          <Route path="/home/" />
+          <Route exact path="/students/" />
+          <Route exact path="/campuses/" />
+          <Route path="/students/:id/" />
+          <Route path="/campuses/:id/" />
+          <Redirect to="/home/" />
         </Switch >
       </div>
     );
