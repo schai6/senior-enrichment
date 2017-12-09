@@ -19,27 +19,27 @@ router.get('/', (req, res, next) => {
 
 router.get('/:id', (req, res, next) => {
   Campus.findById(req.params.id)
-    .then(Campus => {
-      res.json(Campus);
+    .then(campus => {
+      res.json(campus);
     })
     .catch(next);
 });
 
 router.post('/', (req, res, next) => {
   Campus.create(req.body)
-    .then(Campus => {
-      res.json(Campus);
+    .then(campus => {
+      res.json(campus);
     })
     .catch(next);
 });
 
 router.put('/:id', (req, res, next) => {
   Campus.findById(req.params.id)
-    .then(Campus => {
-      return Campus.update(req.body);
+    .then(campus => {
+      return campus.update(req.body);
     })
-    .then(Campus => {
-      res.json(Campus);
+    .then(campus => {
+      res.json(campus);
     })
     .catch(next);
 });
