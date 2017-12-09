@@ -4,6 +4,7 @@ import { GridList, GridTile } from 'material-ui/GridList';
 import Subheader from 'material-ui/Subheader';
 
 const AllCampuses = (props) => {
+  console.log(props);
   return (
     <div className='root campus-grid'>
       <GridList cols={4} cellHeight={230} padding={10} className='gridList campus-gridList'>

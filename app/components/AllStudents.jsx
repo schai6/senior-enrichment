@@ -20,17 +20,15 @@ const AllStudents = (props) => {
           </Table.Row>
         </Table.Header>
         <Table.Body >
-          {props.students.map((student) => {
-            let campus = props.campuses.find(campus => campus.id === student.campusId);
-            if (!campus) campus = {name: ''};
+          {props.students.map(student => {
             return (
               <Table.Row key={student.id}>
                 <Table.Cell>{student.id}</Table.Cell>
                 <Table.Cell>
                   {/* Modal for Viewing Student */}
-                  <SingleStudentModal student={student} campus={campus} />
+                  <SingleStudentModal student={student} campus={student.campus} />
                 </Table.Cell>
-                <Table.Cell>{campus.name}</Table.Cell>
+                <Table.Cell>{student.campus.name}</Table.Cell>
                 <Table.Cell>{student.gpa}</Table.Cell>
                 <Table.Cell textAlign='center'><Button icon onClick={() => props.handleUserDelete(student.id)}><Icon name='user delete' size='large' /></Button></Table.Cell>
               </Table.Row>
