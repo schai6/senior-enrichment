@@ -1,63 +1,34 @@
-// import React from 'react';
-// import { Menu, Segment } from 'semantic-ui-react';
-// import AllStudentsContainer from './AllStudentsContainer';
-// import AllCampusesContainer from './AllCampusesContainer';
+import React from 'react';
+import { Menu, Segment } from 'semantic-ui-react';
+import AllStudentsContainer from '../containers/AllStudentsContainer';
+import AllCampusesContainer from '../containers/AllCampusesContainer';
+import { NavLink } from 'react-router-dom';
+import { withRouter } from 'react-router';
 
-// export default class NavBar extends React.Component {
-//   constructor() {
-//     super();
-//     //local state for choosing tabs
-//     this.state = {
-//       activeItem: 'Home'
-//     };
-//   }
-
-//   handleItemClick(e, { name }) {
-//     this.setState({ activeItem: name });
-//   }
-
-//   render() {
-//     const { activeItem } = this.state;
-//     let currentPage;
-//     if (activeItem === 'Campuses') {
-//       currentPage = <AllCampusesContainer />;
-//     } else if (activeItem === 'Students') {
-//       currentPage = <AllStudentsContainer />;
-//     } else {
-//       currentPage = 'blah';
-//     }
-//     return (
-//       <div>
-//         <Menu attached='top' tabular>
-//           <Menu.Menu position='right'>
-//             <Menu.Item name='Home' active={activeItem === 'Home'} onClick={this.handleItemClick.bind(this)} />
-//             <Menu.Item name='Campuses' active={activeItem === 'Campuses'} onClick={this.handleItemClick.bind(this)} />
-//             <Menu.Item name='Students' active={activeItem === 'Students'} onClick={this.handleItemClick.bind(this)} />
-//           </Menu.Menu>
-//         </Menu>
-//         <Segment attached='bottom' raised padded>
-//           {currentPage}
-//         </Segment>
-//       </div>
-//     );
-//   }
-// }
-
-import React from 'react'
-import { Tab } from 'semantic-ui-react'
-import AllStudentsContainer from './AllStudentsContainer';
-import AllCampusesContainer from './AllCampusesContainer';
-
-/* eslint-disable react/display-name */
-const NavBar = () => {
-  const panes = [
-    { menuItem: 'Home', render: () => <Tab.Pane attached={true}>Home</Tab.Pane> },
-    { menuItem: 'Campuses', render: () => <Tab.Pane attached={true}><AllCampusesContainer /></Tab.Pane> },
-    { menuItem: 'Students', render: () => <Tab.Pane attached={true}><AllStudentsContainer /></Tab.Pane> },
-  ];
+const NavBar = (props) => {
+  const tab = props.location.pathname.slice(1);
+  let currentPage;
+  if (tab === 'campuses') {
+    currentPage = <AllCampusesContainer />;
+  } else if (tab === 'students') {
+    currentPage = <AllStudentsContainer />;
+  } else {
+    currentPage = 'blah';
+  }
   return (
-    <Tab menu={{ pointing: true }} panes={panes} />
+    <div>
+      <Menu pointing secondary>
+        <Menu.Menu position='right'>
+          <NavLink to={`/home`}><Menu.Item name='Home' active={tab === 'home'} /></NavLink>
+          <NavLink to={`/campuses`}><Menu.Item name='Campuses' active={tab === 'campuses'} /></NavLink>
+          <NavLink to={`/students`}><Menu.Item name='Students' active={tab === 'students'} /></NavLink>
+        </Menu.Menu>
+      </Menu>
+      <Segment attached='bottom' raised padded>
+        {currentPage}
+      </Segment>
+    </div>
   );
 };
 
-export default NavBar;
+export default withRouter(NavBar);
