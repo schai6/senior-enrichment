@@ -30,9 +30,13 @@ export const removeStudent = (studentId) => {
 
 export const postStudent = (student) => {
   return dispatch => {
-    return axios.post('/api/students/', student)
-    .then(res => res.data)
-    .then(student => dispatch(getStudent(student)));
+    //attach campus to student when adding to state.
+    return Promise.all([axios.get('/api/campuses/' + student.campusId), axios.post('/api/students/', student)])
+      .then(([campus, student]) => [campus.data, student.data])
+      .then(([campus, student]) => {
+        student.campus = campus;
+        dispatch(getStudent(student));
+      });
   };
 };
 
