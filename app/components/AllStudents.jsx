@@ -2,6 +2,7 @@ import React from 'react';
 import { Table, Icon, Button } from 'semantic-ui-react';
 import SingleStudentModal from './SingleStudentModal';
 import StudentFormModal from './StudentFormModal';
+import { NavLink } from 'react-router-dom';
 
 const AllStudents = (props) => {
   const students = props.students;
@@ -16,8 +17,8 @@ const AllStudents = (props) => {
           <Table.Row>
             <Table.HeaderCell width={2}>#ID</Table.HeaderCell>
             <Table.HeaderCell width={4}>Name</Table.HeaderCell>
-            <Table.HeaderCell width={4}>Email</Table.HeaderCell>
             <Table.HeaderCell width={4}>Campus</Table.HeaderCell>
+            <Table.HeaderCell width={4}>Email</Table.HeaderCell>
             <Table.HeaderCell width={2}>GPA</Table.HeaderCell>
             <Table.HeaderCell width={2}>Remove</Table.HeaderCell>
           </Table.Row>
@@ -35,8 +36,8 @@ const AllStudents = (props) => {
                   {/* Modal for Viewing Student */}
                   <SingleStudentModal student={student} campus={student.campus} />
                 </Table.Cell>
+                <Table.Cell><NavLink to={`/campuses/${student.campus.id}`}>{student.campus.name}</NavLink></Table.Cell>
                 <Table.Cell>{student.email}</Table.Cell>
-                <Table.Cell>{student.campus.name}</Table.Cell>
                 <Table.Cell>{student.gpa}</Table.Cell>
                 <Table.Cell textAlign='center'><Button icon onClick={() => props.handleUserDelete(student.id)}><Icon name='user delete' size='large' /></Button></Table.Cell>
               </Table.Row>
