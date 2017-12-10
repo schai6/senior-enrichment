@@ -3,7 +3,7 @@ import {
   applyMiddleware
 } from 'redux';
 import reducers from './reducers';
-import thunkMiddleware from 'redux-thunk'; // https://github.com/gaearon/redux-thunk
+import thunkMiddleware from 'redux-thunk';
 import {
   createLogger
 } from 'redux-logger';
@@ -21,7 +21,9 @@ const enhancer = composeWithDevTools({
     thunkMiddleware,
     createLogger({
       predicate: (getState, action) => {
-        return !action.type.includes('@@redux-form') && action.type !== "persist/PERSIST" && action.type !== "persist/REHYDRATE";
+        return !action.type.includes('@@redux-form') &&
+          action.type !== "persist/PERSIST" &&
+          action.type !== "persist/REHYDRATE";
       }
     })
   )

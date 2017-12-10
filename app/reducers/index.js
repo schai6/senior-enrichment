@@ -2,6 +2,9 @@
 import { reducer as formReducer } from 'redux-form';
 import { persistCombineReducers } from 'redux-persist';
 import { routerReducer } from 'react-router-redux';
+import {
+  createBlacklistFilter
+} from 'redux-persist-transform-filter';
 import localForage from 'localforage';
 import students from './students';
 import campuses from './campuses';
@@ -9,9 +12,16 @@ import campus from './campus';
 import student from './student';
 import persist from './persist';
 
+const saveSubsetBlacklistFilter = createBlacklistFilter(
+  persist, ['form']
+);
+
 const config = {
   key: 'root',
-  storage: localForage
+  storage: localForage,
+  transforms: [
+    saveSubsetBlacklistFilter
+  ]
 };
 
 
