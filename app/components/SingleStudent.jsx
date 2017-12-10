@@ -4,7 +4,6 @@ import { Table } from 'semantic-ui-react';
 const SingleStudent = (props) => {
   const student = props.student;
   const campus = props.campus;
-
   return (
     <Table textAlign='center' definition celled selectable size='large'>
       <Table.Body >

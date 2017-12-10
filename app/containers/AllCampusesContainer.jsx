@@ -1,11 +1,12 @@
 import { connect } from 'react-redux';
 import AllCampuses from '../components/AllCampuses';
-import { removeCampus, postCampus } from '../store';
+import { removeCampus, postCampus, getCurrentCampus } from '../store';
 
 const mapStateToProps = (state) => {
   return {
     students: state.students,
-    campuses: state.campuses
+    campuses: state.campuses,
+    campus: state.campus
   };
 };
 
@@ -16,6 +17,9 @@ const mapDispatchToProps = (dispatch) => {
     },
     handleFormSubmit(formData) {
       dispatch(postCampus(formData));
+    },
+    handleGetCurrentCampus(campus) {
+      dispatch(getCurrentCampus(campus));
     }
   };
 };

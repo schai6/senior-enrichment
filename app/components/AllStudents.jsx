@@ -22,6 +22,7 @@ const AllStudents = (props) => {
         </Table.Header>
         <Table.Body >
           {props.students.map(student => {
+            if (!student.campus) student.campus= {name: props.campus.name};
             return (
               <Table.Row key={student.id}>
                 <Table.Cell>{student.id}</Table.Cell>
@@ -32,7 +33,7 @@ const AllStudents = (props) => {
                 <Table.Cell>{student.email}</Table.Cell>
                 <Table.Cell>{student.campus.name}</Table.Cell>
                 <Table.Cell>{student.gpa}</Table.Cell>
-                <Table.Cell textAlign='center'><Button icon onClick={() => props.handleUserDelete(student.id)}><Icon name='user delete' size='large' /></Button></Table.Cell>
+                <Table.Cell textAlign='center'><Button icon onClick={() => props.handleUserDelete(student.id, props.campus)}><Icon name='user delete' size='large' /></Button></Table.Cell>
               </Table.Row>
             );
           }

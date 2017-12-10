@@ -9,6 +9,7 @@ const StudentForm = (props) => {
   campuses.map((campus, i) => {
     campusOptions.push({key: i, value: campus.id, text: campus.name});
   });
+  console.log('huh');
   return (
     <Form onSubmit={props.handleSubmit((values) => props.handleFormSubmit(values, event))}>
       <Form.Group>

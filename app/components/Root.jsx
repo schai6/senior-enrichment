@@ -5,6 +5,8 @@ import { Redirect, Switch, Route } from 'react-router-dom';
 import { Segment } from 'semantic-ui-react';
 import AllCampusesContainer from '../containers/AllCampusesContainer';
 import AllStudentsContainer from '../containers/AllStudentsContainer';
+import SingleCampusContainer from '../containers/SingleCampusContainer';
+
 export default class Root extends React.Component {
   componentDidMount() {
     store.dispatch(fetchStudents());
@@ -21,7 +23,7 @@ export default class Root extends React.Component {
             <Route exact path="/students/" component={AllStudentsContainer} />
             <Route exact path="/campuses/" component={AllCampusesContainer} />
             <Route path="/students/:id/" />
-            <Route path="/campuses/:id/" />
+            <Route path="/campuses/:id/" component={SingleCampusContainer} />
             <Redirect to="/home/" />
           </Switch >
         </Segment>

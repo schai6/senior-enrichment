@@ -17,7 +17,7 @@ const AllCampuses = (props) => {
               <Label corner='right'>
                 <Icon className='delete-campus-button' link size='small' disabled={campus.students.length ? true : false} name='window close' onClick={campus.students.length ? null : () => props.handleCampusDelete(campus.id)} />
               </Label >
-              <NavLink to={`/campuses/${campus.id}`}><Image centered as='img' className="campus-image" label={{ color: 'blue', content: campus.name, ribbon: true }} src={campus.imageUrl} /></NavLink>
+              <NavLink to={`/campuses/${campus.id}`}><Image onClick={() => props.handleGetCurrentCampus(campus)} centered as='img' className="campus-image" label={{ color: 'blue', content: campus.name, ribbon: true }} src={campus.imageUrl} /></NavLink>
             </Segment>
           </GridTile>
         ))}
