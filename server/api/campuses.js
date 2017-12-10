@@ -18,7 +18,14 @@ router.get('/', (req, res, next) => {
 });
 
 router.get('/:id', (req, res, next) => {
-  Campus.findById(req.params.id)
+  Campus.find({
+    where: {
+      id: req.params.id,
+    },
+    include: [{
+      model: Student
+    }]
+  })
     .then(campus => {
       res.json(campus);
     })
