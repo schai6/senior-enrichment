@@ -6,6 +6,7 @@ import { Segment } from 'semantic-ui-react';
 import AllCampusesContainer from '../containers/AllCampusesContainer';
 import AllStudentsContainer from '../containers/AllStudentsContainer';
 import SingleCampusContainer from '../containers/SingleCampusContainer';
+import SingleStudentContainer from '../containers/SingleStudentContainer';
 
 export default class Root extends React.Component {
   componentDidMount() {
@@ -22,7 +23,7 @@ export default class Root extends React.Component {
             <Route path="/home/" />
             <Route exact path="/students/" component={AllStudentsContainer} />
             <Route exact path="/campuses/" component={AllCampusesContainer} />
-            <Route path="/students/:id/" />
+            <Route path="/students/:id/" component={SingleStudentContainer}/>
             <Route path="/campuses/:id/" component={SingleCampusContainer} />
             <Redirect to="/home/" />
           </Switch >

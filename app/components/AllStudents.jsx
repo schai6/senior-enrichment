@@ -34,7 +34,8 @@ const AllStudents = (props) => {
                 <Table.Cell>{student.id}</Table.Cell>
                 <Table.Cell>
                   {/* Modal for Viewing Student */}
-                  <SingleStudentModal student={student} campus={student.campus} />
+                  {/* <SingleStudentModal student={student} campus={student.campus} /> */}
+                  <NavLink to={`/students/${student.id}`}><Button primary fluid>{student.name}</Button></NavLink>
                 </Table.Cell>
                 <Table.Cell><NavLink to={`/campuses/${student.campus.id}`}>{student.campus.name}</NavLink></Table.Cell>
                 <Table.Cell>{student.email}</Table.Cell>
