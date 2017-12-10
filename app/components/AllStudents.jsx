@@ -6,7 +6,6 @@ import { NavLink } from 'react-router-dom';
 const AllStudents = (props) => {
   const students = props.students;
   const campuses = props.campuses;
-  console.log(campuses);
   return (
     <div>
       {/* Modal for adding a student */}
@@ -25,7 +24,6 @@ const AllStudents = (props) => {
         </Table.Header>
         <Table.Body >
           {students.map(student => {
-            console.log(student.campus);
             if (!student.campus) {
               let campus = campuses[0];
               student.campus = { name: campus.name, id: campus.id};
