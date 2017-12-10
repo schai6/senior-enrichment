@@ -1,12 +1,12 @@
 import { connect } from 'react-redux';
 import AllCampuses from '../components/AllCampuses';
-import { removeCampus, postCampus, getCurrentCampus } from '../store';
+import { removeCampus, postCampus } from '../store';
+import { withRouter } from 'react-router';
 
 const mapStateToProps = (state) => {
   return {
     students: state.students,
-    campuses: state.campuses,
-    campus: state.campus
+    campuses: state.campuses
   };
 };
 
@@ -17,12 +17,9 @@ const mapDispatchToProps = (dispatch) => {
     },
     handleFormSubmit(formData) {
       dispatch(postCampus(formData));
-    },
-    handleGetCurrentCampus(campus) {
-      dispatch(getCurrentCampus(campus));
     }
   };
 };
 
-const AllCampusesContainer = connect(mapStateToProps, mapDispatchToProps)(AllCampuses);
+const AllCampusesContainer = withRouter(connect(mapStateToProps, mapDispatchToProps)(AllCampuses));
 export default AllCampusesContainer;

@@ -1,11 +1,13 @@
 import { connect } from 'react-redux';
 import SingleCampus from '../components/SingleCampus';
+import { withRouter } from 'react-router'
 
-const mapStateToProps = (state) => {
+const mapStateToProps = (state, ownProps) => {
+  const campus = state.campuses.find(campus => campus.id === +ownProps.match.params.id);
   return {
-    campus: state.campus
+    campus
   };
 };
 
-const SingleCampusContainer = connect(mapStateToProps)(SingleCampus);
+const SingleCampusContainer = withRouter(connect(mapStateToProps)(SingleCampus));
 export default SingleCampusContainer;

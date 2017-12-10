@@ -4,10 +4,12 @@ import SingleStudentModal from './SingleStudentModal';
 import StudentFormModal from './StudentFormModal';
 
 const AllStudents = (props) => {
+  const students = props.students;
+  const campuses = props.campuses;
   return (
     <div>
       {/* Modal for adding a student */}
-      <StudentFormModal campuses={props.campuses} handleFormSubmit={props.handleFormSubmit} />
+      <StudentFormModal campuses={campuses} handleFormSubmit={props.handleFormSubmit} />
       {/* Table of Students */}
       <Table textAlign='center' definition celled selectable size='large'>
         <Table.Header>
@@ -21,8 +23,11 @@ const AllStudents = (props) => {
           </Table.Row>
         </Table.Header>
         <Table.Body >
-          {props.students.map(student => {
-            if (!student.campus) student.campus= {name: props.campus.name};
+          {students.map(student => {
+            if (!student.campus) {
+              let campus = campuses[0];
+              student.campus = { name: campus.name};
+            }
             return (
               <Table.Row key={student.id}>
                 <Table.Cell>{student.id}</Table.Cell>
@@ -33,7 +38,7 @@ const AllStudents = (props) => {
                 <Table.Cell>{student.email}</Table.Cell>
                 <Table.Cell>{student.campus.name}</Table.Cell>
                 <Table.Cell>{student.gpa}</Table.Cell>
-                <Table.Cell textAlign='center'><Button icon onClick={() => props.handleUserDelete(student.id, props.campus)}><Icon name='user delete' size='large' /></Button></Table.Cell>
+                <Table.Cell textAlign='center'><Button icon onClick={() => props.handleUserDelete(student.id)}><Icon name='user delete' size='large' /></Button></Table.Cell>
               </Table.Row>
             );
           }

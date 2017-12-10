@@ -1,5 +1,5 @@
 import React from 'react';
-import store, { fetchStudents, fetchCampuses } from '../store';
+import { store, fetchStudents, fetchCampuses } from '../store';
 import NavBar from './NavBar';
 import { Redirect, Switch, Route } from 'react-router-dom';
 import { Segment } from 'semantic-ui-react';

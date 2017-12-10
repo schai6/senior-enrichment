@@ -14,7 +14,7 @@ const SingleCampus = (props) => {
         </Header.Subheader>
       </Header>
       {/* call AllStudentsContainer with own list of students/campus */}
-      <AllStudentsContainer campus={campus}  />
+      <AllStudentsContainer />
     </div>
   );
 };

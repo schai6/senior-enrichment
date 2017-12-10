@@ -1,37 +1,32 @@
 import { connect } from 'react-redux';
 import AllStudents from '../components/AllStudents';
-import { removeStudent, postStudent, fetchCampus, getCurrentStudent } from '../store';
+import { removeStudent, postStudent, fetchCampuses } from '../store';
+import { withRouter } from 'react-router';
 
 const mapStateToProps = (state, ownProps) => {
-  //use own props if passed in.
-  let students = ownProps.campus ? ownProps.campus.students : state.students;
-  let campuses = ownProps.campus ? [ownProps.campus] : state.campuses;
+  //use current campus if found.
+  const campusId = ownProps.match.params.id;
+  const campuses = campusId ? [state.campuses.find(campus => campus.id === +campusId)] : state.campuses;
+  const students = campusId ? campuses[0].students : state.students;
   return {
     students,
-    campuses,
-    campus: state.campus,
-    student: state.student
+    campuses
   };
 };
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    //gets the campus for single campus view to cause rerender
-    handleUserDelete(studentId, campus) {
+    //when you remove a student, update the campus
+    handleUserDelete(studentId) {
       dispatch(removeStudent(studentId))
-      .then(() => {
-        if (campus) dispatch(fetchCampus(campus.id));
-      });
+        .then(dispatch(fetchCampuses()));
     },
     handleFormSubmit(formData) {
-      dispatch(postStudent(formData))
-      .then(dispatch(fetchCampus(formData.campusId)));
-    },
-    handleGetCurrentStudent(student) {
-      dispatch(getCurrentStudent(student));
+      dispatch(postStudent(formData, formData.campusId))
+      .then(dispatch(fetchCampuses()));
     }
   };
 };
 
-const AllStudentsContainer = connect(mapStateToProps, mapDispatchToProps)(AllStudents);
+const AllStudentsContainer = withRouter(connect(mapStateToProps, mapDispatchToProps)(AllStudents));
 export default AllStudentsContainer;

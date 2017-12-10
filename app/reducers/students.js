@@ -35,7 +35,7 @@ export const postStudent = (student) => {
       .then(([campus, student]) => [campus.data, student.data])
       .then(([campus, student]) => {
         student.campus = campus;
-        dispatch(getStudent(student));
+        return dispatch(getStudent(student));
       });
   };
 };

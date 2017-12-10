@@ -10,12 +10,30 @@ import {
 import {
   composeWithDevTools
 } from 'redux-devtools-extension';
+import {
+  persistStore
+} from 'redux-persist';
 
+const enhancer = composeWithDevTools({
+  maxAge: 10
+})(
+  applyMiddleware(
+    thunkMiddleware,
+    createLogger({
+      predicate: (getState, action) => {
+        return !action.type.includes('@@redux-form') && action.type !== "persist/PERSIST" && action.type !== "persist/REHYDRATE";
+      }
+    })
+  )
+);
 
-export default createStore(reducers, composeWithDevTools(applyMiddleware(
-  thunkMiddleware,
-  createLogger()
-)));
+let store = createStore(reducers, enhancer);
+let persistor = persistStore(store);
+
+export {
+  store,
+  persistor
+};
 
 export * from './reducers/students';
 export * from './reducers/campuses';
