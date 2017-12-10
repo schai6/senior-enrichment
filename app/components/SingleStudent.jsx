@@ -1,5 +1,6 @@
 import React from 'react';
 import { Table } from 'semantic-ui-react';
+import { NavLink } from 'react-router-dom';
 
 const SingleStudent = (props) => {
   const student = props.student;
@@ -25,7 +26,7 @@ const SingleStudent = (props) => {
         </Table.Row>
         <Table.Row>
           <Table.Cell textAlign='center'>Campus</Table.Cell>
-          <Table.Cell>{campus.name}</Table.Cell>
+          <Table.Cell><NavLink to={`/campuses/${campus.id}`}>{campus.name}</NavLink></Table.Cell>
         </Table.Row>
       </Table.Body>
     </Table>
