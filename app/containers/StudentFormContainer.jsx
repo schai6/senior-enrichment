@@ -6,8 +6,8 @@ const mapStateToProps = (state, ownProps) => {
   return {
     campuses: state.campuses,
     students: state.students,
-    selectedStudents: ownProps.selectedStudents ? ownProps.selctedStudents : state.students,
-    selectedCampuses: ownProps.selectedCampuses ? ownProps.selctedCampuses : state.campuses,
+    selectedStudents: ownProps.selectedStudents ? ownProps.selectedStudents : state.students,
+    selectedCampuses: ownProps.selectedCampuses ? ownProps.selectedCampuses : state.campuses,
     initialValues: ownProps.student
   };
 };
