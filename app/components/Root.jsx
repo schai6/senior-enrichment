@@ -18,7 +18,7 @@ export default class Root extends React.Component {
     return (
       <div>
         <NavBar />
-        <Segment attached='bottom' raised padded>
+        <Segment attached='bottom' raised>
           <Switch >
             <Route path="/home/" />
             <Route exact path="/students/" component={AllStudentsContainer} />

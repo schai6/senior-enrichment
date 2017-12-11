@@ -6,9 +6,11 @@ const SingleCampus = (props) => {
   const campus = props.campus;
   return (
     <div>
-      <Header as='h2' icon>
-        <Image src={campus.imageUrl} />
-        {campus.name}
+      <Image size='large' centered bordered src={campus.imageUrl} />
+      <Header as='h1' textAlign='center' color='teal'>
+        <Header.Content>
+          {campus.name}
+        </Header.Content>
         <Header.Subheader>
           {campus.description}
         </Header.Subheader>

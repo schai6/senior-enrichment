@@ -25,7 +25,7 @@ class StudentFormModal extends React.Component {
 
   render() {
     return (
-      <Modal size='tiny' open={this.state.modalOpen} onClose={() => this.handleClose()} trigger={<Button onClick={() => this.handleOpen()} className='add-student-button'>ADD STUDENT</Button>}>
+      <Modal size='tiny' open={this.state.modalOpen} onClose={() => this.handleClose()} trigger={<Button positive onClick={() => this.handleOpen()} className='add-student-button'>ADD STUDENT</Button>}>
         <Modal.Header>Add a Student</Modal.Header>
         <Modal.Content>
           <StudentForm campuses={this.props.campuses} handleFormSubmit={this.handleFormSubmit.bind(this)} handleClose={this.handleClose.bind(this)} />

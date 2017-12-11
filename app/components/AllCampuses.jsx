@@ -6,10 +6,6 @@ import { NavLink } from 'react-router-dom';
 const AllCampuses = (props) => {
   return (
     <div className='root campus-grid'>
-      <Header
-        as='h1' icon='leaf'
-        content='Campuses'
-      />
       <GridList cols={4} cellHeight={230} padding={10} className='gridList campus-gridList'>
         {props.campuses.map((campus) => (
           <GridTile title={''} titlePosition='top' key={campus.id}>

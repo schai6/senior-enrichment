@@ -1,15 +1,15 @@
 import React from 'react';
-import { Table } from 'semantic-ui-react';
+import { Table, Label } from 'semantic-ui-react';
 import { NavLink } from 'react-router-dom';
 
 const SingleStudent = (props) => {
   const student = props.student;
   const campus = props.student.campus;
   return (
-    <Table textAlign='center' definition celled selectable size='large'>
+    <Table textAlign='center' collapsing definition celled selectable size='large'>
       <Table.Body >
         <Table.Row>
-          <Table.Cell textAlign='center'>First Name</Table.Cell>
+          <Table.Cell textAlign='center'>First Name<Label color='red' floating>22</Label></Table.Cell>
           <Table.Cell>{student.firstName}</Table.Cell>
         </Table.Row>
         <Table.Row>

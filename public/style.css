@@ -2,9 +2,10 @@ body {
   font-family: 'Roboto', sans-serif;
 }
 
-.ui.pointing.menu {
-  display: flex;
-  justify-content: flex-end;
+.ui.header:first-child {
+  margin-top: 10px;
+  margin-bottom: 0px;
+  padding: 5px;
 }
 
 .ui.image.campus-image img {
@@ -21,7 +22,6 @@ body {
 .gridList .campus-gridList {
   width: 500;
   height: 450;
-  overflow-y: 'auto';
 }
 
 .ui.raised.segment.campuses-segment {
@@ -34,5 +34,32 @@ body {
 
 .ui.corner.label .icon.disabled.delete-campus-button {
   cursor: not-allowed;
+}
+
+.nav-bar {
+  display: flex;
+  justify-content: space-between;
+}
+
+.ui.secondary.pointing.menu {
+  border-bottom: 0;
+  margin-top: 2em;
+}
+
+.ui.table td.four.wide, .ui.table th.four.wide {
+  width: 25%;
+  color: teal;
+}
+
+.ui.table td.two.wide, .ui.table th.two.wide {
+  width: 12.5%;
+  color: teal;
+}
+
+.ui.definition.table tr td.definition, .ui.definition.table tr td:first-child:not(.ignored) {
+  background: rgba(0,0,0,.03);
+  font-weight: 700;
+  color: teal;
+  font-size: 1em;
 }
 

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Menu } from 'semantic-ui-react';
+import { Menu, Header } from 'semantic-ui-react';
 import { NavLink } from 'react-router-dom';
 import { withRouter } from 'react-router';
 
@@ -8,10 +8,14 @@ const NavBar = (props) => {
   const slash = props.location.pathname.indexOf('/', 1);
   const tab = slash > -1 ? props.location.pathname.slice(1, slash) : props.location.pathname.slice(1);
   return (
-    <div>
-      <Menu pointing secondary>
+    <div className='nav-bar'>
+      <Header
+        as='h1' icon='snowflake outline' color='blue'
+        content='Interplanetary Academy of JavaScript'
+      />
+      <Menu color='blue' pointing secondary size='large'>
         <Menu.Menu position='right'>
-          <NavLink to={`/home`}><Menu.Item name='Home' active={tab === 'home'} /></NavLink>
+          <NavLink to={`/home`}><Menu.Item fitted='vertically' name='Home' active={tab === 'home'} /></NavLink>
           <NavLink to={`/campuses`}><Menu.Item name='Campuses' active={tab === 'campuses'} /></NavLink>
           <NavLink to={`/students`}><Menu.Item name='Students' active={tab === 'students'} /></NavLink>
         </Menu.Menu>
