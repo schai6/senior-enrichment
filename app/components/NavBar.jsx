@@ -13,7 +13,7 @@ const NavBar = (props) => {
         as='h1' icon='snowflake outline' color='blue'
         content='Interplanetary Academy of JavaScript'
       />
-      <Menu color='blue' pointing secondary size='large'>
+      <Menu color='blue' className='nav-bar-menu-right' pointing secondary size='large'>
         <Menu.Menu position='right'>
           <NavLink to={`/home`}><Menu.Item fitted='vertically' name='Home' active={tab === 'home'} /></NavLink>
           <NavLink to={`/campuses`}><Menu.Item name='Campuses' active={tab === 'campuses'} /></NavLink>

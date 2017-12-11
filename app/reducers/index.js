@@ -8,9 +8,8 @@ import {
 import localForage from 'localforage';
 import students from './students';
 import campuses from './campuses';
-import campus from './campus';
-import student from './student';
 import persist from './persist';
+import student from './student';
 
 const saveSubsetBlacklistFilter = createBlacklistFilter(
   persist, ['form']
@@ -27,10 +26,9 @@ const config = {
 
 export default persistCombineReducers(config, {
   persist,
-  student,
-  campus,
   students,
   campuses,
+  student,
   form: formReducer,
   routing: routerReducer
 });

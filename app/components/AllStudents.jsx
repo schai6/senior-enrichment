@@ -1,15 +1,15 @@
 import React from 'react';
 import { Table, Icon, Button } from 'semantic-ui-react';
-import StudentFormModal from './StudentFormModal';
+import AllStudentsAddModalContainer from '../containers/AllStudentsAddModalContainer';
 import { NavLink } from 'react-router-dom';
 
 const AllStudents = (props) => {
-  const students = props.students;
-  const campuses = props.campuses;
+  const students = props.selectedStudents;
+  const campuses = props.selectedCampuses;
   return (
     <div>
       {/* Modal for adding a student */}
-      <StudentFormModal campuses={campuses} handleFormSubmit={props.handleFormSubmit} />
+      <AllStudentsAddModalContainer />
       {/* Table of Students */}
       <Table color='teal' textAlign='center' definition celled selectable size='large'>
         <Table.Header>
@@ -37,7 +37,7 @@ const AllStudents = (props) => {
                 <Table.Cell><NavLink to={`/campuses/${student.campus.id}`}>{student.campus.name}</NavLink></Table.Cell>
                 <Table.Cell>{student.email}</Table.Cell>
                 <Table.Cell>{student.gpa}</Table.Cell>
-                <Table.Cell textAlign='center'><Button negative icon onClick={() => props.handleUserDelete(student.id)}><Icon name='user delete' size='large' /></Button></Table.Cell>
+                <Table.Cell textAlign='center'><Button negative icon onClick={() => props.handleUserDelete(student.id, props.students)}><Icon name='user delete' size='large' /></Button></Table.Cell>
               </Table.Row>
             );
           }

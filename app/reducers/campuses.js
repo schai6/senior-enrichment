@@ -16,12 +16,10 @@ export const fetchCampuses = () => {
   };
 };
 
-export const removeCampus = (campusId) => {
+export const removeCampus = (campusId, campuses) => {
   return dispatch => {
     return axios.delete('/api/campuses/' + campusId)
-      .then(() => {
-        dispatch(fetchCampuses());
-      })
+      .then(dispatch(getCampuses(campuses.filter(campus => campus.id !== campusId))))
       .catch(error => {
         console.error(error);
       });

@@ -9,8 +9,8 @@ body {
 }
 
 .ui.image.campus-image img {
-  width: 200px;
-  height: 200px;
+  width: -webkit-fill-available;
+  height: -webkit-fill-available;
 }
 
 .root .campus-grid {

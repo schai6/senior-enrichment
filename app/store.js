@@ -39,5 +39,4 @@ export {
 
 export * from './reducers/students';
 export * from './reducers/campuses';
-export * from './reducers/campus';
 export * from './reducers/student';
