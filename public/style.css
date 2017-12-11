@@ -70,3 +70,7 @@ i.edit.icon.edit-student-icon {
 td.center.aligned.single-student-table > p {
   color: teal;
 }
+
+.root.campus-grid {
+  margin-top: 1em;
+}

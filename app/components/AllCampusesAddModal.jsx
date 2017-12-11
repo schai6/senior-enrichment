@@ -26,7 +26,7 @@ class AllCampusesAddModal extends React.Component {
 
   render() {
     return (
-      <Modal size='tiny' open={this.state.modalOpen} onClose={() => this.handleClose()} trigger={<Button positive onClick={() => this.handleOpen()} className='add-student-button'>ADD Campus</Button>}>
+      <Modal size='tiny' open={this.state.modalOpen} onClose={() => this.handleClose()} trigger={<Button positive onClick={() => this.handleOpen()} className='add-student-button'>ADD CAMPUS</Button>}>
         <Modal.Header>Add a Campus</Modal.Header>
         <Modal.Content>
           <CampusFormContainer handleFormSubmit={this.handleFormSubmit.bind(this)} handleClose={this.handleClose.bind(this)} />

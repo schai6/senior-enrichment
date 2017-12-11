@@ -23,7 +23,10 @@ export const updateStudent = (student, campuses, students) => {
     return Promise.all([axios.get(`/api/campuses/${student.campusId}`), axios.put(`/api/students/${student.id}`, student)])
       .then(([campus, student]) => [campus.data, student.data])
       .then(([campus, student]) => {
-        const newStudent = {...student, campus};
+        const newStudent = {...student, campus, campusId: campus.id};
+        console.log(student);
+        console.log(campus);
+        console.log(newStudent);
         const newCampus = students.map(student => student.id === newStudent.id ? newStudent : student);
         campuses = campuses.map(campus => campus.id === newCampus.id ? newCampus : campus);
         students = students.map(student => student.id === newStudent.id ? newStudent : student);

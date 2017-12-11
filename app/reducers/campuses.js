@@ -17,23 +17,29 @@ export const fetchCampuses = () => {
   };
 };
 
-//update the campus, update campuses state, then update the campus on every single student, then update students state.
-export const updateCampus = (campus, selectedStudents, campuses, students) => {
+//first update campus, update its students to have the proper campusId. Then update all students so that their campusID and campus is the new campus.
+export const updateCampus = (campus, campuses, students) => {
+  console.log('updateCampus', campus);
   return dispatch => {
     return axios.put(`/api/campuses/${campus.id}`, campus)
       .then(res => res.data)
       .then(updatedCampus => {
-        campuses = campuses.map(campus => campus.id === updatedCampus.id ? updatedCampus : campus);
-        dispatch(getCampuses(campuses));
-        let selectedStudentsIds = [];
-        selectedStudents = selectedStudents.map(student => {
-          selectedStudentsIds.push(student.id);
+        updatedCampus.students.map(student => {
+          let campus = {campus: student.campusId !== updatedCampus.id ? student.campusId : campus.id};
           return {...student, campus};
         });
-        students = students.map(student => {
-          let index = selectedStudentsIds.indexOf(student);
-          return index > -1 ? selectedStudents[index] : student;
+        campuses = campuses.map(campus => campus.id === updatedCampus.id ? updatedCampus : campus);
+        dispatch(getCampuses(campuses));
+        const studentsIds = students.map(student => student.id);
+        const campusStudentsIds = campus.students.map(student => student.id);
+        //get campus without students.
+        const {campusStudents, ...campus} = updatedCampus;
+        console.log('campus', campus);
+        //update campus and also campusId.
+        campusStudentsIds.map(studentId => {
+          return {...students[studentsIds.indexOf(studentId)], campus, campusId: campus.id};
         });
+
         dispatch(getStudents(students));
       })
       .catch(error => {
