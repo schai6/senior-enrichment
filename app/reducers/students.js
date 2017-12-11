@@ -1,5 +1,4 @@
 import axios from 'axios';
-import { getCampuses } from './campuses';
 export const FETCH_STUDENTS = 'FETCH_STUDENTS';
 export const REMOVE_STUDENT = 'REMOVE_STUDENT';
 export const GET_STUDENTS = 'GET_STUDENTS';
@@ -24,14 +23,10 @@ export const updateStudent = (student, campuses, students) => {
       .then(([campus, student]) => [campus.data, student.data])
       .then(([campus, student]) => {
         const newStudent = {...student, campus, campusId: campus.id};
-        console.log(student);
-        console.log(campus);
-        console.log(newStudent);
         const newCampus = students.map(student => student.id === newStudent.id ? newStudent : student);
         campuses = campuses.map(campus => campus.id === newCampus.id ? newCampus : campus);
         students = students.map(student => student.id === newStudent.id ? newStudent : student);
         dispatch(getStudents(students));
-        dispatch(getCampuses(campuses));
       })
       .catch(error => {
         console.error(error);

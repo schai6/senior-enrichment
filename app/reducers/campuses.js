@@ -3,7 +3,6 @@ export const FETCH_CAMPUSES = 'FETCH_CAMPUSES';
 export const REMOVE_CAMPUS = 'REMOVE_CAMPUS';
 export const GET_CAMPUSES = 'GET_CAMPUSES';
 export const GET_CAMPUS = 'GET_CAMPUS';
-import getStudents from './students';
 
 export const fetchCampuses = () => {
   return dispatch => {
@@ -39,8 +38,6 @@ export const updateCampus = (campus, campuses, students) => {
         campusStudentsIds.map(studentId => {
           return {...students[studentsIds.indexOf(studentId)], campus, campusId: campus.id};
         });
-
-        dispatch(getStudents(students));
       })
       .catch(error => {
         console.error(error);
