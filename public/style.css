@@ -7,21 +7,16 @@ body {
   margin-bottom: 0px;
   padding: 5px;
 }
-
+/*
 .ui.image.campus-image img {
   width: -webkit-fill-available;
   height: -webkit-fill-available;
-}
+} */
 
 .root .campus-grid {
   display: 'flex';
   flex-wrap: 'wrap';
   justify-content: 'space-around';
-}
-
-.gridList .campus-gridList {
-  width: 500;
-  height: 450;
 }
 
 i.edit.icon.edit-student-icon {

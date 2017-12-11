@@ -9,7 +9,7 @@ const AllCampuses = (props) => {
     <div>
       <AllCampusesAddModalContainer />
       <div className='root campus-grid'>
-        <GridList cols={4} cellHeight={230} padding={10} className='gridList campus-gridList'>
+        <GridList cols={4} cellHeight='auto' padding={10} className='gridList campus-gridList'>
           {props.campuses.map((campus) => (
             <GridTile title={''} titlePosition='top' key={campus.id}>
               <Segment raised className='campuses-segment'>
