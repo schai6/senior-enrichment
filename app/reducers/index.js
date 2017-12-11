@@ -18,6 +18,7 @@ const saveSubsetBlacklistFilter = createBlacklistFilter(
 const config = {
   key: 'root',
   storage: localForage,
+  blacklist: ['form'],
   transforms: [
     saveSubsetBlacklistFilter
   ]
