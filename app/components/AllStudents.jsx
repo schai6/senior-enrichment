@@ -9,7 +9,7 @@ const AllStudents = (props) => {
   return (
     <div>
       {/* Modal for adding a student */}
-      <AllStudentsAddModalContainer />
+      <AllStudentsAddModalContainer selectedCampuses={campuses} selectedStudents={students} />
       {/* Table of Students */}
       <Table color='teal' textAlign='center' definition celled selectable size='large'>
         <Table.Header>
@@ -37,7 +37,7 @@ const AllStudents = (props) => {
                 <Table.Cell><NavLink to={`/campuses/${student.campus.id}`}>{student.campus.name}</NavLink></Table.Cell>
                 <Table.Cell>{student.email}</Table.Cell>
                 <Table.Cell>{student.gpa}</Table.Cell>
-                <Table.Cell textAlign='center'><Button negative icon onClick={() => props.handleUserDelete(student.id, props.students)}><Icon name='user delete' size='large' /></Button></Table.Cell>
+                <Table.Cell textAlign='center'><Button negative icon onClick={() => props.handleUserDelete(student, props.students, props.campuses)}><Icon name='user delete' size='large' /></Button></Table.Cell>
               </Table.Row>
             );
           }

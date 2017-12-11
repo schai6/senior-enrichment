@@ -18,8 +18,8 @@ class AllStudentsAddModal extends React.Component {
     this.setState({ modalOpen: false });
   }
 
-  handleFormSubmit(values) {
-    this.props.handleFormSubmit(values);
+  handleFormSubmit(values, campuses) {
+    this.props.handleFormSubmit(values, campuses);
     this.handleClose();
   }
 
@@ -28,7 +28,7 @@ class AllStudentsAddModal extends React.Component {
       <Modal size='tiny' open={this.state.modalOpen} onClose={() => this.handleClose()} trigger={<Button positive onClick={() => this.handleOpen()} className='add-student-button'>ADD STUDENT</Button>}>
         <Modal.Header>Add a Student</Modal.Header>
         <Modal.Content>
-          <StudentFormContainer handleFormSubmit={this.handleFormSubmit.bind(this)} handleClose={this.handleClose.bind(this)} />
+          <StudentFormContainer selectedStudents={this.props.selectedStudents} selectedCampuses={this.props.selectedCampuses} handleFormSubmit={this.handleFormSubmit.bind(this)} handleClose={this.handleClose.bind(this)} />
         </Modal.Content>
       </Modal>
     );

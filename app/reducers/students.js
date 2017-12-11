@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { getCampuses } from './campuses';
 export const FETCH_STUDENTS = 'FETCH_STUDENTS';
 export const REMOVE_STUDENT = 'REMOVE_STUDENT';
 export const GET_STUDENTS = 'GET_STUDENTS';
@@ -16,16 +17,20 @@ export const fetchStudents = () => {
   };
 };
 
-export const updateStudent = (student, students) => {
+export const updateStudent = (student, allCampuses, allStudents) => {
+  //when updating a student, need to update his/her campus as well.
   return dispatch => {
     return Promise.all([axios.get(`/api/campuses/${student.campusId}`), axios.put(`/api/students/${student.id}`, student)])
       .then(([campus, student]) => [campus.data, student.data])
       .then(([campus, student]) => {
-        const newStudent = {...student, campus};
-        students = students.map(student => {
-          return student.id === newStudent.id ? newStudent : student;
-        });
-        dispatch(getStudents(students));
+        //cannot use campus because campus includes students...
+        const {students, ...campusData} = campus;
+        const newStudent = {...student, campusData};
+        const newCampus = students.map(student => student.id === newStudent.id ? newStudent : student);
+        allCampuses = allCampuses.map(campus => campus.id === newCampus.id ? newCampus : campus);
+        allStudents = allStudents.map(student => student.id === newStudent.id ? newStudent : student);
+        dispatch(getStudents(allStudents));
+        dispatch(getCampuses(allCampuses));
       })
       .catch(error => {
         console.error(error);
@@ -33,24 +38,35 @@ export const updateStudent = (student, students) => {
   };
 };
 
-export const removeStudent = (studentId, students) => {
+//when deleting a student, remove student from all students, and remove student from his/her campus.
+export const removeStudent = (student, students, campuses) => {
+  const studentId = student.id;
   return dispatch => {
     return axios.delete(`/api/students/${studentId}`)
-      .then(dispatch(getStudents(students.filter(student => student.id !== studentId))))
+      .then(() => {
+        dispatch(getStudents(students.filter(student => student.id !== studentId)));
+        const campus = campuses.find(campus => campus.id === student.campus.id);
+        const newCampusStudents = campus.students.filter(student => student.id !== studentId);
+        const newCampus = {...campus, students: newCampusStudents};
+        dispatch(getCampuses(campuses.map(campus => campus.id === newCampus.id ? newCampus : campus)));
+      })
       .catch(error => {
         console.error(error);
       });
   };
 };
 
-export const postStudent = (student) => {
+export const postStudent = (student, campuses) => {
   return dispatch => {
-    //attach campus to student when adding to state.
+    //attach campus to student when adding to state, add student to campus, and update all campuses.
     return Promise.all([axios.get(`/api/campuses/${student.campusId}`), axios.post('/api/students/', student)])
       .then(([campus, student]) => [campus.data, student.data])
       .then(([campus, student]) => {
-        student.campus = campus;
-        return dispatch(getStudent(student));
+        const {students, ...campusData} = campus;
+        const newStudent = {...student, campusData};
+        dispatch(getStudent(newStudent));
+        const newCampus = {...campus, students: [...students, student]};
+        dispatch(getCampuses(campuses.map(campus => campus.id === newCampus.id ? newCampus : campus )));
       });
   };
 };

@@ -4,13 +4,13 @@ import { Field, reduxForm } from 'redux-form';
 import { InputField, SelectField } from 'react-semantic-redux-form';
 
 const StudentForm = (props) => {
-  const campuses = props.campuses;
+  const campuses = props.selectedCampuses;
   let campusOptions = [{key: 'select', value: '', text: 'Select a Campus'}];
   campuses.map((campus, i) => {
     campusOptions.push({key: i, value: campus.id, text: campus.name});
   });
   return (
-    <Form onSubmit={props.handleSubmit((values) => props.handleFormSubmit(values, props.students, event))}>
+    <Form onSubmit={props.handleSubmit((values) => props.handleFormSubmit(values, props.campuses, props.students, event))}>
       <Form.Group>
         <Field name='firstName' component={InputField} label='First Name' placeholder='First Name' />
         <Field name='lastName' component={InputField} label='Last Name' placeholder='Last Name' />

@@ -12,8 +12,8 @@ const mapStateToProps = (state, ownProps) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    handleFormSubmit(formData, students) {
-      dispatch(updateStudent(formData, students))
+    handleFormSubmit(formData, campuses, students) {
+      dispatch(updateStudent(formData, campuses, students));
     }
   };
 };

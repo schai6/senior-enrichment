@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import AllStudents from '../components/AllStudents';
-import { removeStudent, fetchCampuses } from '../store';
+import { removeStudent } from '../store';
 import { withRouter } from 'react-router';
 
 const mapStateToProps = (state, ownProps) => {
@@ -19,9 +19,8 @@ const mapStateToProps = (state, ownProps) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     //when you remove a student, update the campus
-    handleUserDelete(studentId) {
-      dispatch(removeStudent(studentId))
-        .then(dispatch(fetchCampuses()));
+    handleUserDelete(studentId, students, campuses) {
+      dispatch(removeStudent(studentId, students, campuses));
     }
   };
 };

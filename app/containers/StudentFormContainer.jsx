@@ -6,6 +6,8 @@ const mapStateToProps = (state, ownProps) => {
   return {
     campuses: state.campuses,
     students: state.students,
+    selectedStudents: ownProps.selectedStudents,
+    selectedCampuses: ownProps.selectedCampuses,
     initialValues: ownProps.student
   };
 };

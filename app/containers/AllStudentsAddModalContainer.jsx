@@ -1,19 +1,20 @@
 import { connect } from 'react-redux';
 import AllStudentsAddModal from '../components/AllStudentsAddModal';
 import { withRouter } from 'react-router';
-import {postStudent, fetchCampuses } from '../store';
+import {postStudent } from '../store';
 
-const mapStateToProps = (state) => {
+const mapStateToProps = (state, ownProps) => {
   return {
-    campuses: state.campuses
+    campuses: state.campuses,
+    selectedStudents: ownProps.selectedStudents,
+    selectedCampuses: ownProps.selectedCampuses
   };
 };
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    handleFormSubmit(formData) {
-      dispatch(postStudent(formData))
-      .then(dispatch(fetchCampuses()));
+    handleFormSubmit(formData, campuses) {
+      dispatch(postStudent(formData, campuses));
     }
   };
 };

@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import AllCampuses from '../components/AllCampuses';
-import { removeCampus, postCampus } from '../store';
+import { removeCampus } from '../store';
 import { withRouter } from 'react-router';
 
 const mapStateToProps = (state) => {
@@ -12,11 +12,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    handleCampusDelete(campusId) {
-      dispatch(removeCampus(campusId));
-    },
-    handleFormSubmit(formData) {
-      dispatch(postCampus(formData));
+    handleCampusDelete(campusId, campuses, students) {
+      dispatch(removeCampus(campusId, campuses, students));
     }
   };
 };
