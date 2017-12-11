@@ -3,9 +3,9 @@ import { Form, Button } from 'semantic-ui-react';
 import { Field, reduxForm } from 'redux-form';
 import { InputField, SelectField } from 'react-semantic-redux-form';
 
-const StudentForm = (props) => {
-  const campuses = props.selectedCampuses;
-  let campusOptions = [{key: 'select', value: '', text: 'Select a Campus'}];
+const CampusForm = (props) => {
+  const students = props.students;
+  let studentOptions = [{key: 'select', value: '', text: 'Select a Student'}];
   campuses.map((campus, i) => {
     campusOptions.push({key: i, value: campus.id, text: campus.name});
   });
@@ -20,10 +20,10 @@ const StudentForm = (props) => {
       <Field name='gpa' component={InputField} label='GPA' type='number' placeholder='GPA' />
       <div>
         <Button disabled={props.pristine || props.submitting} onClick={props.reset}>Reset Form</Button>
-        <Button disabled={props.pristine || props.submitting} type='submit'>Submit</Button>
+        <Button disabled={props.pristine || props.submitting}type='submit'>Submit</Button>
       </div>
     </Form>
   );
 };
 
-export default reduxForm({ form: 'StudentForm' })(StudentForm);
+export default reduxForm({ form: 'CampusForm' })(CampusForm);

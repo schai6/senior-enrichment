@@ -4,7 +4,7 @@ const {
   Student
 } = require('../db/models');
 
-
+//Eager loading, I think it may be bad because it makes updating state more difficult.
 router.get('/', (req, res, next) => {
   Campus.findAll({
       include: [{
@@ -18,14 +18,7 @@ router.get('/', (req, res, next) => {
 });
 
 router.get('/:id', (req, res, next) => {
-  Campus.find({
-    where: {
-      id: req.params.id,
-    },
-    include: [{
-      model: Student
-    }]
-  })
+  Campus.findById(req.params.id)
     .then(campus => {
       res.json(campus);
     })

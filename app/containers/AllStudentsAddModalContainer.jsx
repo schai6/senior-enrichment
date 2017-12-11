@@ -20,5 +20,5 @@ const mapDispatchToProps = (dispatch) => {
 };
 
 
-const StudentAddModalContainer = withRouter(connect(mapStateToProps, mapDispatchToProps)(AllStudentsAddModal));
-export default StudentAddModalContainer;
+const AllStudentsAddModalContainer = withRouter(connect(mapStateToProps, mapDispatchToProps)(AllStudentsAddModal));
+export default AllStudentsAddModalContainer;

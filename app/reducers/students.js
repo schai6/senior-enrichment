@@ -17,20 +17,18 @@ export const fetchStudents = () => {
   };
 };
 
-export const updateStudent = (student, allCampuses, allStudents) => {
+export const updateStudent = (student, campuses, students) => {
   //when updating a student, need to update his/her campus as well.
   return dispatch => {
     return Promise.all([axios.get(`/api/campuses/${student.campusId}`), axios.put(`/api/students/${student.id}`, student)])
       .then(([campus, student]) => [campus.data, student.data])
       .then(([campus, student]) => {
-        //cannot use campus because campus includes students...
-        const {students, ...campusData} = campus;
-        const newStudent = {...student, campusData};
+        const newStudent = {...student, campus};
         const newCampus = students.map(student => student.id === newStudent.id ? newStudent : student);
-        allCampuses = allCampuses.map(campus => campus.id === newCampus.id ? newCampus : campus);
-        allStudents = allStudents.map(student => student.id === newStudent.id ? newStudent : student);
-        dispatch(getStudents(allStudents));
-        dispatch(getCampuses(allCampuses));
+        campuses = campuses.map(campus => campus.id === newCampus.id ? newCampus : campus);
+        students = students.map(student => student.id === newStudent.id ? newStudent : student);
+        dispatch(getStudents(students));
+        dispatch(getCampuses(campuses));
       })
       .catch(error => {
         console.error(error);
@@ -62,10 +60,9 @@ export const postStudent = (student, campuses) => {
     return Promise.all([axios.get(`/api/campuses/${student.campusId}`), axios.post('/api/students/', student)])
       .then(([campus, student]) => [campus.data, student.data])
       .then(([campus, student]) => {
-        const {students, ...campusData} = campus;
-        const newStudent = {...student, campusData};
+        const newStudent = {...student, campus};
         dispatch(getStudent(newStudent));
-        const newCampus = {...campus, students: [...students, student]};
+        const newCampus = {...campus, students: [...campus.students, student]};
         dispatch(getCampuses(campuses.map(campus => campus.id === newCampus.id ? newCampus : campus )));
       });
   };

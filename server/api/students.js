@@ -1,16 +1,10 @@
 const router = require('express').Router();
 const {
-  Student,
-  Campus
+  Student
 } = require('../db/models');
 
-//Eager loading, I think it may be bad because it makes updating state more difficult.
 router.get('/', (req, res, next) => {
-  Student.findAll({
-      include: [{
-        model: Campus
-      }]
-    })
+  Student.findAll()
     .then(students => {
       res.json(students);
     })
