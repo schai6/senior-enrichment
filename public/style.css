@@ -2,7 +2,7 @@ body {
   font-family: 'Roboto', sans-serif;
 }
 
-.ui.header:first-child {
+.ui.blue.header:first-child {
   margin-top: 10px;
   margin-bottom: 0px;
   padding: 5px;
@@ -24,8 +24,8 @@ body {
   height: 450;
 }
 
-.ui.raised.segment.campuses-segment {
-  position: absolute;
+i.edit.icon.edit-student-icon {
+  cursor: pointer;
 }
 
 .ui.corner.label .icon.delete-campus-button {
@@ -41,9 +41,8 @@ body {
   justify-content: space-between;
 }
 
-.ui.secondary.pointing.menu {
+.ui.blue.large.pointing.secondary.nav-bar-menu-right.menu {
   border-bottom: 0;
-  margin-top: 2em;
 }
 
 .ui.table td.four.wide, .ui.table th.four.wide {
@@ -63,3 +62,11 @@ body {
   font-size: 1em;
 }
 
+.ui.raised.bottom.attached.segment {
+  display: flex;
+  justify-content: center;
+}
+
+td.center.aligned.single-student-table > p {
+  color: teal;
+}
