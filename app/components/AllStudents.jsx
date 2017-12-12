@@ -1,6 +1,7 @@
 import React from 'react';
 import { Table, Icon, Button } from 'semantic-ui-react';
 import AllStudentsAddModalContainer from '../containers/AllStudentsAddModalContainer';
+import TransferStudentsModalContainer from '../containers/TransferStudentsModalContainer';
 import { NavLink } from 'react-router-dom';
 
 const AllStudents = (props) => {
@@ -8,8 +9,11 @@ const AllStudents = (props) => {
   const campuses = props.selectedCampuses;
   return (
     <div>
-      {/* Modal for adding a student */}
-      <AllStudentsAddModalContainer selectedCampuses={campuses} selectedStudents={students} />
+      <div className='students-button'>
+        {/* Modal for adding a student */}
+        <AllStudentsAddModalContainer selectedCampuses={campuses} selectedStudents={students} />
+        <TransferStudentsModalContainer selectedCampuses={campuses} selectedStudents={students} />
+      </div>
       {/* Table of Students */}
       <Table color='teal' textAlign='center' definition celled selectable size='large'>
         <Table.Header>
