@@ -57,10 +57,15 @@ export const removeCampus = (campusId, campuses) => {
 };
 
 export const postCampus = (campus) => {
+
   return dispatch => {
     return axios.post('/api/campuses/', campus)
     .then(res => res.data)
-    .then(campus => dispatch(getCampuses(campus)));
+    .then(campus => {
+      //add empty students array
+      campus.students = [];
+      dispatch(getCampus(campus));
+    });
   };
 };
 

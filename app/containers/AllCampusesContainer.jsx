@@ -12,8 +12,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    handleCampusDelete(campusId, campuses, students) {
-      dispatch(removeCampus(campusId, campuses, students));
+    handleCampusDelete(campusId, campuses) {
+      dispatch(removeCampus(campusId, campuses));
     }
   };
 };

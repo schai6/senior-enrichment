@@ -28,21 +28,12 @@ module.exports = {
   },
   module: {
     loaders: [{
-        test: /jsx?$/,
-        include: resolve(__dirname, './app'),
-        loader: 'babel-loader',
-        query: {
-          presets: ['react', 'es2015', 'stage-2']
-        }
-      },
-      {
-        test: /\\.css$/,
-        use: ['style-loader', 'css-loader']
-      },
-      {
-        test: /\\.(gif|ttf|eot|svg|woff2?)$/,
-        use: 'url-loader?name=[name].[ext]'
+      test: /jsx?$/,
+      include: resolve(__dirname, './app'),
+      loader: 'babel-loader',
+      query: {
+        presets: ['react', 'es2015', 'stage-2']
       }
-    ]
+    }]
   }
 };

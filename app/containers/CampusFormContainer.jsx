@@ -1,6 +1,5 @@
 import { connect } from 'react-redux';
-import CampusForm from '../components/CampusForm';
-import StudentForm from '../components/StudentForm';
+import CampusSubmitForm from '../components/CampusSubmitForm';
 import { withRouter } from 'react-router';
 
 const mapStateToProps = (state, ownProps) => {
@@ -10,5 +9,5 @@ const mapStateToProps = (state, ownProps) => {
   };
 };
 
-const CampusFormContainer = withRouter(connect(mapStateToProps)(StudentForm));
+const CampusFormContainer = withRouter(connect(mapStateToProps)(CampusSubmitForm));
 export default CampusFormContainer;

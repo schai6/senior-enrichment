@@ -1,7 +1,7 @@
 
 import React from 'react';
 import { Button, Modal } from 'semantic-ui-react';
-import CampusFormContainer from '../containers/CampusFormContainer';
+import CampusSubmitForm from './CampusSubmitForm';
 
 class AllCampusesAddModal extends React.Component {
   constructor(props) {
@@ -19,8 +19,8 @@ class AllCampusesAddModal extends React.Component {
     this.setState({ modalOpen: false });
   }
 
-  handleFormSubmit(values, campuses) {
-    this.props.handleFormSubmit(values, campuses);
+  handleFormSubmit(values) {
+    this.props.handleFormSubmit(values);
     this.handleClose();
   }
 
@@ -29,7 +29,7 @@ class AllCampusesAddModal extends React.Component {
       <Modal size='tiny' open={this.state.modalOpen} onClose={() => this.handleClose()} trigger={<Button positive onClick={() => this.handleOpen()} className='add-student-button'>ADD CAMPUS</Button>}>
         <Modal.Header>Add a Campus</Modal.Header>
         <Modal.Content>
-          <CampusFormContainer handleFormSubmit={this.handleFormSubmit.bind(this)} handleClose={this.handleClose.bind(this)} />
+          <CampusSubmitForm handleFormSubmit={this.handleFormSubmit.bind(this)} handleClose={this.handleClose.bind(this)} />
         </Modal.Content>
       </Modal>
     );
