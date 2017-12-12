@@ -18,8 +18,8 @@ class AllStudentsAddModal extends React.Component {
     this.setState({ modalOpen: false });
   }
 
-  handleFormSubmit(values, campuses) {
-    this.props.handleFormSubmit(values, campuses);
+  handleFormSubmit(student) {
+    this.props.handleFormSubmit(student);
     this.handleClose();
   }
 

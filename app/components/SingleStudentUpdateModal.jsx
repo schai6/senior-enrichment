@@ -18,8 +18,8 @@ class SingleStudentUpdateModal extends React.Component {
     this.setState({ modalOpen: false });
   }
 
-  handleFormSubmit(values, students, campuses) {
-    this.props.handleFormSubmit(values, students, campuses);
+  handleFormSubmit(values, campuses, students) {
+    this.props.handleFormSubmit(values, campuses, students);
     this.handleClose();
   }
 

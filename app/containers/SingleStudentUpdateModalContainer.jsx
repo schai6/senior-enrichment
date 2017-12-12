@@ -1,10 +1,11 @@
 import { connect } from 'react-redux';
 import SingleStudentUpdateModal from '../components/SingleStudentUpdateModal';
 import { withRouter } from 'react-router';
-import { updateStudent, getStudents } from '../store';
+import { updateStudent } from '../store';
 
 const mapStateToProps = (state, ownProps) => {
   return {
+    students: state.students,
     campuses: state.campuses,
     initialValues: ownProps.student
   };
@@ -13,8 +14,7 @@ const mapStateToProps = (state, ownProps) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     handleFormSubmit(formData, campuses, students) {
-      dispatch(updateStudent(formData, campuses, students))
-      .then(dispatch(getStudents(students)));
+      dispatch(updateStudent(formData, campuses, students));
     }
   };
 };

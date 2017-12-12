@@ -10,7 +10,7 @@ const StudentForm = (props) => {
     campusOptions.push({key: i, value: campus.id, text: campus.name});
   });
   return (
-    <Form onSubmit={props.handleSubmit((values) => props.handleFormSubmit(values, props.campuses, props.students))}>
+    <Form onSubmit={props.handleSubmit((values) => props.handleFormSubmit(values, campuses, props.students))}>
       <Form.Group>
         <Field name='firstName' component={InputField} label='First Name' placeholder='First Name' />
         <Field name='lastName' component={InputField} label='Last Name' placeholder='Last Name' />
