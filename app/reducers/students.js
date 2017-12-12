@@ -40,7 +40,7 @@ export const removeStudent = (student, students) => {
   return dispatch => {
     return axios.delete(`/api/students/${studentId}`)
       .then(() => {
-        dispatch(getStudents(students.filter(student => student.id !== studentId)))
+        dispatch(getStudents(students.filter(student => student.id !== studentId)));
       })
       .catch(error => {
         console.error(error);
