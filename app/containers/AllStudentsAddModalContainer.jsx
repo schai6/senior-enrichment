@@ -1,7 +1,8 @@
 import { connect } from 'react-redux';
 import AllStudentsAddModal from '../components/AllStudentsAddModal';
 import { withRouter } from 'react-router';
-import {postStudent } from '../store';
+import { postStudent, getCampuses } from '../store';
+import axios from 'axios';
 
 const mapStateToProps = (state, ownProps) => {
   return {
@@ -13,8 +14,14 @@ const mapStateToProps = (state, ownProps) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    handleFormSubmit(formData, campuses) {
-      dispatch(postStudent(formData, campuses));
+    handleFormSubmit(student, campuses) {
+      dispatch(postStudent(student))
+        .then(axios.get(`/api/campuses/${student.campusId}`))
+        .then(campus => {
+          console.log(campus);
+          const newCampus = { ...campus, students: [...campus.students, student] };
+          dispatch(getCampuses(campuses.map(campus => campus.id === newCampus.id ? newCampus : campus)));
+        });
     }
   };
 };
