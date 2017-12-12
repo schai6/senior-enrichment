@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 import AllStudentsAddModal from '../components/AllStudentsAddModal';
 import { withRouter } from 'react-router';
-import { postStudent, getCampuses, fetchCampuses } from '../store';
+import { postStudent, fetchCampuses } from '../store';
 
 const mapStateToProps = (state, ownProps) => {
   return {
